@@ -1,0 +1,163 @@
+<!-- Header -->
+
+
+
+<mat-card class="box" style="background-color:#F5F5F5;height:750px;">
+  <mat-card-header>
+    <mat-card-title layout="row" layout-align="center center" style="margin-left:50px;text-align: left;MARGIN-TOP:50PX;
+    font: normal normal bold 22px Lato;
+    letter-spacing: 0px;
+    color: #7C7C7C;
+    opacity: 1;">Customer Registration || 顧客登録 || Kokyaku tōroku</mat-card-title>
+  </mat-card-header>
+  <br>
+  <form class="example-form" style="background-color:#FFFFFF;width:1200px;height:550px;margin-left:50px;"
+    [formGroup]="registerForm" (ngSubmit)="registerSubmitted()">
+    <!-- <mat-card-content>  -->
+    <table>
+      <tbody>
+        <br>
+        <tr>
+          <td>
+            <label style="margin-left:30px;">Customer Name(Kanji)Name</label><br>
+            <mat-form-field class="example-full-width" style="height:60px;width:550px;margin-left:30px;">
+              <input matInput placeholder="Name(kanji)" type="text" class="form-control" id="kanjiname"
+                formControlName="kanjiname">
+            </mat-form-field>
+          </td>
+          <td>
+            <label style="margin-left:30px;">Email-Id</label><br>
+            <mat-form-field class="example-full-width" style="width:550px;height:60px;margin-left:30px;">
+              <input matInput type="email" class="form-control" id="email" placeholder="E-mail Id"
+                formControlName="email">
+            </mat-form-field>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label style="margin-left:30px;">Customer Name(Kanji)Lastname</label><br>
+            <mat-form-field class="example-full-width" style="height:60px;width:550px;margin-left:30px;">
+              <input matInput placeholder="Lastname(Kanji)" type="text" class="form-control" id="kanjilastname"
+                formControlName="kanjilastname">
+            </mat-form-field>
+          </td>
+
+          <td>
+            <label style="margin-left:30px;">Cell Phone</label><br>
+            <mat-form-field class="example-full-width" style="height:60px;width:270px;margin-left:30px;">
+              <input matInput type="number" class="form-control" id="cell1" placeholder="Number 1"
+                formControlName="cell1">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" style="height:60px;width:270px;margin-left:5px;">
+              <input matInput type="number" class="form-control" id="cell2" placeholder="Number 2"
+                formControlName="cell2">
+            </mat-form-field>
+          </td>
+
+        </tr>
+
+        <tr>
+          <td>
+            <label style="margin-left:30px;">Customer Name(Kana)Name</label><br>
+            <mat-form-field class="example-full-width" style="height:60px;width:550px;margin-left:30px;">
+              <input matInput placeholder="Name(Kana)" type="text" class="form-control" id="kananame"
+                formControlName="kananame">
+            </mat-form-field>
+          </td>
+          <td>
+            <label style="margin-left:30px;">Phone Number</label><br>
+            <mat-form-field class="example-full-width" style="width:130px;height:60px;margin-left:30px;">
+              <input type="number" class="form-control" id="phone1" matInput placeholder="Area code"
+                formControlName="phone1">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" style="width:200px;height:60px;margin-left:5px;">
+              <input type="number" class="form-control" id="phone2" matInput placeholder="Exchange Number"
+                formControlName="phone2">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" style="width:200px;height:60px;margin-left:5px;">
+              <input type="number" class="form-control" id="phone3" matInput placeholder="Subscriber Number"
+                formControlName="phone3">
+            </mat-form-field>
+
+          </td>
+
+        </tr>
+
+        <tr>
+          <td>
+            <label style="margin-left:30px;">Customer Name(Kana)Lastname</label><br>
+            <mat-form-field class="example-full-width"
+              style="height:60px;width:550px;margin-left:5px;margin-left:30px;">
+              <input matInput type="text" class="form-control" id="kanalastname" placeholder="Lastname(Kana)"
+                formControlName="kanalastname">
+            </mat-form-field>
+          </td>
+          <td><label style="margin-left:30px;">Address</label><br>
+            <mat-form-field class="example-full-width" style="width:550px;height:60px;margin-left:30px;">
+              <input matInput type="text" class="form-control" id="add1" placeholder="Address Line 1"
+                formControlName="add1">
+            </mat-form-field>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label style="margin-left:30px;">生年月日</label><br>
+            
+
+                      <mat-form-field style="width:550px;height:60px;margin-left:30px;" class="example-full-width" class="form-group"> 
+                        <input matInput [matDatepicker]="dob" placeholder="Select a date"(dateChange)="updateDOB($event)" >
+                        <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+                        <mat-datepicker #dob></mat-datepicker>
+                      </mat-form-field>
+          </td>
+
+          <td>
+            <mat-form-field class="example-full-width"
+              style="width:550px;margin-left:5px;height:60px;margin-left:30px;">
+              <input matInput type="text" class="form-control" id="add2" placeholder="Address Line 2"
+                formControlName="add2">
+            </mat-form-field>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label style="margin-left:30px;">Gender</label><br>
+            <mat-radio-group aria-label="Select an option" class="form-control" id="gender"
+              style="width:550px;margin-left:5px;height:60px;margin-bottom:200px;margin-left:30px;"
+              formControlName="gender">
+              <mat-radio-button value="M">Male</mat-radio-button>
+              <mat-radio-button value="F">Female</mat-radio-button>
+              <mat-radio-button value="O">Other</mat-radio-button>
+            </mat-radio-group>
+          </td>
+          <td>
+
+            <mat-form-field class="example-full-width"
+              style="width:550px;margin-left:5px;height:60px;margin-left:30px;">
+              <input matInput type="text" class="form-control" id="add3" placeholder="Address Line 3"
+                formControlName="add3">
+            </mat-form-field>
+          </td>
+
+
+        </tr>
+
+        <tr>
+          <br>
+        </tr>
+
+
+      </tbody>
+    </table>
+    <button mat-stroked-button type="submit" color="accent" class="btn-block"
+      style="background-color:#001E50;color:#FFFFFF;width:300px;margin-left:450px;margin-top:50px;"
+      [disabled]="registerForm.invalid">Register || 登録 || Tōroku</button>
+
+
+    <!-- </mat-card-content> -->
+  </form>
+</mat-card>

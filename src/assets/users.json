@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "[北海道]",
+      "email": "doejohn@kanjilab.it"
+    },
+    {
+      "id": "2",
+      "name": " [青森県]",
+      "email": "doejohn@kanjilab.it"
+    },
+    {
+      "id": "3",
+      "name": " [岩手県",
+      "email": "doejohn@kanjilab.it"
+    },
+    {
+      "id": "4",
+      "name": "  [宮城県]",
+      "email": "doejohn@kanjilab.it"
+    }
+  ]
+}
