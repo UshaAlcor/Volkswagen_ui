@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HttpClientModule} from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 // import { FlexLayoutModule } from '@angular/flex-layout';
 
 
@@ -39,7 +39,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatNativeDateModule} from '@angular/material/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AuthService } from './auth.service';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -57,7 +57,10 @@ import {
 import {MatDialogModule} from '@angular/material/dialog';
 import { SearchFilterPipe } from './search-filter.pipe';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core';
 
 
 /* Angular Material */
