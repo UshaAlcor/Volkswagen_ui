@@ -1,0 +1,155 @@
+<mat-card class="box" style="background-color:#F5F5F5;height:900px;width:1500px;">
+    <mat-card-header>
+      <mat-card-title layout="row" layout-align="center center" style="margin-left:50px;text-align: left;MARGIN-TOP:50PX;
+        font: normal normal bold 22px Lato;
+        letter-spacing: 0px;
+        color: #7C7C7C;
+        opacity: 1;">Search & Update Information || 情報の検索と更新 || Jōhō no kensaku to kōshin</mat-card-title>
+    </mat-card-header>
+    <br>
+  
+    <form class="example-form" style="background-color:#FFFFFF;width:1300px;height:700px;margin-left:50px;"
+      [formGroup]="updateForm">
+      <!-- <mat-card-content>  -->
+      <div class="example-button-row">
+        <input type="search" placeholder=" Search..." id="searchk" formControlName="searchk"
+        style="background-color:#F5F5F5;margin-top:30px;color:black;width:350px;height:30px;margin-left:10px;"
+        class="form-control" />
+      <button mat-button style="margin-left :30px;background-color:#001E50;color:white;"
+        (click)="search()">Search || 検索 || Kensaku</button>
+        <hr style="margin-top:30px;">
+        <!-- <a mat-button href="https://www.google.com/" target="_blank">Link</a> -->
+      </div>
+      <table *ngIf="this.searchedResult&&( searchedResult| json) != '{}'; else content">
+        <tbody>
+          <br>
+          <tr>
+            <td>
+              <label style="margin-left:30px;font: normal normal bold 18px Lato;">Customer Name(Kana)Name</label><br>
+              <input matInput placeholder="Name(Kana)" type="text" class="form-control" name="kananame"
+                formControlName="kananame" ngDefaultControl 
+                style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;border:none"/>
+                  <!-- {{searchedResult?.kananame}} -->
+                  <hr style="width:350px;margin-left:30px;">
+            </td>
+            <td>
+              <label style="margin-left:30px;font: normal normal bold 18px Lato;">Customer Name(Kana)Lastname</label><br>
+              <input matInput type="text" class="form-control" name="kanalastname" placeholder="Lastname(Kana)"
+                formControlName="kanalastname" ngDefaultControl 
+                style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"/>
+                 <hr style="width:350px;margin-left:30px;">
+            </td>
+            <td>
+              <label style="margin-left:30px;font: normal normal bold 18px Lato;">Email Id</label><br>
+              <input type="email" class="form-control" name="email" placeholder="E-mail Id" formControlName="email" ngDefaultControl 
+                style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"/>
+                 <hr style="width:350px;margin-left:30px;">
+            </td>
+  
+          </tr>
+  <br>
+          <tr>
+            <td>
+              <label style="margin-left:30px;font: normal normal bold 18px Lato;">Customer Name(Kanji)Name</label><br>
+              <input placeholder="Name(kanji)" type="text" class="form-control" name="kanjiname" formControlName="kanjiname"  ngDefaultControl 
+                style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"/>
+                <hr style="width:350px;margin-left:30px;">
+            </td>
+            <td>
+              <label style="margin-left:30px;font: normal normal bold 18px Lato;">Customer Name(Kanji)Lastname</label><br>
+              <input matInput placeholder="Lastname(Kanji)" type="text" class="form-control" name="kanjilastname"
+                formControlName="kanjilastname" ngDefaultControl 
+                style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"/>
+                 <hr style="width:350px;margin-left:30px;">
+            </td>
+            <td>
+              <label style="margin-left:30px;font: normal normal bold 18px Lato;">Gender</label><br>
+              <input class="form-control" name="gender" 
+                style="width:350px;margin-left:5px;height:40px;margin-bottom:200px;margin-left:30px;"ngDefaultControl 
+                formControlName="gender"
+                style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"/>
+                 <hr style="width:350px;margin-left:30px;">
+            </td>
+  
+          </tr>
+  
+          <br>
+          <tr>
+            <td> <label style="margin-left:30px;font: normal normal bold 18px Lato;">Date Of Birth</label><br>
+              <input type="date" id="birthday" name="birthday" class="dob" name="dob" 
+                style="background-color:#F5F5F5;width:230px;height:30px;margin-bottom:20px;margin-left:30px;"
+                formControlName="dob"ngDefaultControl 
+                style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"/>
+                  <hr style="width:350px;margin-left:30px;">
+            </td>
+  
+            <td>
+              <label style="margin-left:30px;font: normal normal bold 18px Lato;">Cell Phone 1 </label><br>
+              <input matInput type="number" class="form-control" name="cell1" placeholder="Number 1" formControlName="cell1" ngDefaultControl 
+                style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"/>
+                  <hr style="width:350px;margin-left:30px;">
+            </td>
+            <td>
+              <label style="margin-left:30px;font: normal normal bold 18px Lato;">Cell Phone 2</label><br>
+              <input matInput type="number" class="form-control" name="cell2" placeholder="Number 2" formControlName="cell2" ngDefaultControl 
+                style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"/>
+                  <hr style="width:350px;margin-left:30px;">
+            </td>
+  
+          </tr>
+          <br>
+          <tr>
+  
+            <td><label style="margin-left:30px;font: normal normal bold 18px Lato;">Address Line 1</label><br>
+              <input matInput type="text" class="form-control" name="add1" placeholder="Address Line 1" formControlName="add1" ngDefaultControl 
+                style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"/>
+                 <hr style="width:350px;margin-left:30px;">
+            </td>
+            <td><label style="margin-left:30px;font: normal normal bold 18px Lato;">Address Line 2</label><br>
+              <input type="text" class="form-control" name="add2" placeholder="Address Line 2" formControlName="add2" ngDefaultControl 
+                style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"/>
+                 <hr style="width:350px;margin-left:30px;">
+            </td>
+            <td><label style="margin-left:30px;font: normal normal bold 18px Lato;">Address Line 3</label><br>
+              <input type="text" class="form-control" name="add3" placeholder="Address Line 3" formControlName="add3" ngDefaultControl 
+                style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"/>
+                  <hr style="width:350px;margin-left:30px;">
+            </td>
+          </tr>
+          <br>
+          <tr>
+            <td>
+              <label style="margin-left:30px;font: normal normal bold 18px Lato;">Area Code</label><br>
+              <input type="number" class="form-control" name="phone1" matInput placeholder="+" formControlName="phone1" ngDefaultControl 
+                style="height:40px;width:200px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"/>
+                 <hr style="width:200px;margin-left:30px;">
+            </td>
+            <td><label style="margin-left:30px;font: normal normal bold 18px Lato;">Exchange Number</label><br>
+              <input type="number" class="form-control" name="phone2" matInput placeholder="Number" formControlName="phone2" ngDefaultControl 
+                style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"/>
+                  <hr style="width:350px;margin-left:30px;">
+            </td>
+            <td><label style="margin-left:30px;font: normal normal bold 18px Lato;">Subscriber Number</label><br>
+              <input type="number" class="form-control" name="phone3" matInput placeholder="Number" formControlName="phone3" ngDefaultControl 
+                style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"/>
+                  <hr style="width:350px;margin-left:30px;">
+            </td>
+          </tr>
+  
+  
+        </tbody>
+      </table>
+      <ng-template #content> <label class="noDataCss">No Data Found</label></ng-template>
+ 
+      <!-- </mat-card-content> -->
+   
+  
+    <mat-card-footer *ngIf="searchedResult&&( searchedResult| json) != '{}'" >
+        <div class="example-button-row" style="margin-top:50px;">
+            <button mat-button  color="secondary" (click)="deleteRecord()"style="margin-left:900px;margin-top:40px;">Delete Record</button>
+            <button mat-raised-button color="primary"(click)="updatesSubmitted()" style="margin-left:20px;margin-top:40px;background-color:#001E50;" >Update Record</button>
+            <!-- <a mat-button href="https://www.google.com/" target="_blank">Link</a> -->
+          </div>
+  </mat-card-footer>
+  </form>
+  </mat-card>

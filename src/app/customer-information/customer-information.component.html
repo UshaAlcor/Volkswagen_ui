@@ -1,0 +1,50 @@
+<mat-card class="box" style="background-color:#F5F5F5;height:800px;margin-left:10px;">
+    <mat-card-header style="margin-bottom:20px;">
+        <mat-card-title layout="row" layout-align="center center" style="margin-left:50px;text-align: left;MARGIN-TOP:50PX;
+                font: normal normal bold 22px Lato;
+                letter-spacing: 0px;
+                color: #7C7C7C;
+                opacity: 1;">Customer Information || 顧客情報 || Kokyaku jōhō</mat-card-title>
+        <div class="example-button-row">
+            <button mat-button style="margin-left:380px;margin-top:40px;background-color:#001E50;color:#FFFFFF;" (click)="information()">View Records || 記録を見る || Kiroku o miru </button>
+            <!-- <a mat-button href="https://www.google.com/" target="_blank">Link</a> -->
+        </div>
+
+    </mat-card-header>
+
+    <form [formGroup]="userForm" class="example-form" style="background-color:#FFFFFF;width:1200px;height:530px;margin-left:50px;">
+        <table>
+            <tbody>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Kana Lastname</th>
+                    <th scope="col">Kana Name</th>
+                    <th scope="col">Cell Number</th>
+                    <th scope="col">Email Id</th>
+                </tr>
+                <tr *ngFor="let item of inforesponse;let i=index">
+
+                    <td class="id" formControlName="id" name="id" click="detail()" ngDefaultControl ><a
+                            [routerLink]="['/info/'+item.id]">{{item.id}}</a></td>
+
+                    <td class="kanalastname" formControlName="kanalastname" name="kanalastname"ngDefaultControl 
+                        click="detail()">{{item.kanalastname}}</td>
+
+                    <td class="kananame" formControlName="kananame" name="kananame"ngDefaultControl
+                        click="detail()">{{item.kananame}}</td>
+
+                    <td>{{item.cell1}}</td>
+                    <td>{{item.email}}</td>
+
+                </tr>
+            </tbody>
+
+
+        </table>
+
+    </form>
+
+    <mat-card-footer>
+
+    </mat-card-footer>
+</mat-card>
