@@ -1,11 +1,11 @@
-
+import { NgModule } from '@angular/core';
 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HttpClientModule} from '@angular/common/http';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { FlexLayoutModule } from '@angular/flex-layout';
 
 
@@ -39,9 +39,9 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatNativeDateModule} from '@angular/material/core';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './auth.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 
 import {MAT_DATE_LOCALE} from '@angular/material/core';
@@ -57,10 +57,14 @@ import {
 import {MatDialogModule} from '@angular/material/dialog';
 import { SearchFilterPipe } from './search-filter.pipe';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchComponent } from './search/search.component';
+import { DialogComponent } from './dialog/dialog.component';
+import { UpdateinfoComponent } from './updateinfo/updateinfo.component';
+import { ListcustomerComponent } from './listcustomer/listcustomer.component';
+import { DetailedCustInfoComponent } from './detailed-cust-info/detailed-cust-info.component';
+import { TestComponent } from './test/test.component';
+import { CustomerInformationComponent } from './customer-information/customer-information.component';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
 
 
 /* Angular Material */
@@ -70,7 +74,13 @@ import { NgModule } from '@angular/core';
     AppComponent,
    
     LandingPageComponent,
-
+    SearchComponent,
+    DialogComponent,
+    UpdateinfoComponent,
+    ListcustomerComponent,
+    TestComponent,
+    DetailedCustInfoComponent,
+    CustomerInformationComponent,
     SearchFilterPipe
   ],
   imports: [
@@ -125,6 +135,9 @@ import { NgModule } from '@angular/core';
     provide:  DateAdapter,
     useClass: MomentDateAdapter,
     deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+  },{
+    provide: MatDialogRef,
+    useValue: {}
   },
   {
     provide: MAT_DATE_FORMATS,

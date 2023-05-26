@@ -1,0 +1,58 @@
+<mat-card class="box" style="background-color:#F5F5F5;height:800px;width:1600px;margin-left:10px;">
+    <mat-card-header style="margin-bottom:20px;">
+        <mat-card-title layout="row" layout-align="center center" style="margin-left:50px;text-align: left;MARGIN-TOP:50PX;
+        font: normal normal bold 22px Lato;
+        letter-spacing: 0px;
+        color: #7C7C7C;
+        opacity: 1;">List of All Customers || すべての顧客のリスト || Subete no kokyaku no risuto</mat-card-title>
+        <div class="example-button-row">
+            <button mat-button style="margin-left:220px;margin-top:40px;background-color:#001E50;color:#FFFFFF;"
+                (click)="information()">View Records || 記録を見る || Kiroku o miru </button>
+            <!-- <a mat-button href="https://www.google.com/" target="_blank">Link</a> -->
+        </div>
+
+    </mat-card-header>
+
+    <form class="example-form"  style="background-color:#FFFFFF;width:1300px;height:530px;margin-left:50px;">
+        <table>
+            <tbody>
+                <tr style="height:60px;font-family: Lato;font-size:17px;">
+                    <th scope="col">Id</th>
+                    <th scope="col" (click)="sortKana()">Kana Lastname
+                        <span *ngIf="sortTable === 'asc'">&#x25B2;</span>
+                        <span *ngIf="sortTable === 'desc'">&#x25BC;</span>
+                    </th>
+                    <th scope="col">Kana Name</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">D.O.B</th>
+                    <th scope="col">Cell Number</th>
+                    <th scope="col">Email Id</th>
+                    
+                   
+                    <th scope="col">Action</th>
+                    <th scope="col">Verify Action</th>
+
+                </tr>
+                <tr *ngFor="let item of inforesponse">
+                    <td>{{item.id}}</td>
+                    <td>{{item.kanalastname}}</td>
+                    <td>{{item.kananame}}</td>
+                    <td>{{item.gender}}</td>
+                    <td>{{item.dob}}</td>
+                    <td>{{item.cell1}}</td>
+                   <td>{{item.email}}</td>
+                    
+                    <!-- <td>
+                        <input type="checkbox" [formControlName]="item.id">
+                    </td> -->
+                    <td>
+                        <button mat-button (click)="alert()" style="background-color:rgb(18, 165, 62);color:white">Delete</button>
+                    </td>
+                    <td>
+                        <button mat-button (click)="delete(item)" style="background-color:rgb(175, 5, 28);color:white">Confirm</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</mat-card>

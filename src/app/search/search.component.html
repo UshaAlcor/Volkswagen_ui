@@ -1,0 +1,146 @@
+<mat-card class="box" style="background-color:#F5F5F5;height:900px;width:1500px;">
+  <mat-card-header>
+    <mat-card-title layout="row" layout-align="center center" style="margin-left:50px;text-align: left;MARGIN-TOP:50PX;
+      font: normal normal bold 22px Lato;
+      letter-spacing: 0px;
+      color: #7C7C7C;
+      opacity: 1;">Search Information || 検索情報 || Kensaku jōhō</mat-card-title>
+  </mat-card-header>
+  <br>
+
+  <form class="example-form" style="background-color:#FFFFFF;width:1300px;height:700px;margin-left:50px;"
+    [formGroup]="detailForm">
+    <!-- <mat-card-content>  -->
+    <div class="example-button-row">
+      <input type="search" placeholder=" Search..." id="searchk" formControlName="searchk"
+        style="background-color:#F5F5F5;margin-top:30px;color:black;width:350px;height:30px;margin-left:10px;"
+        class="form-control" />
+      <button mat-button style="margin-left :30px;background-color:#001E50;color:white;"
+        (click)="search()">Search || 検索 || Kensaku</button>
+
+      <hr style="margin-top:30px;">
+      <!-- <a mat-button href="https://www.google.com/" target="_blank">Link</a> -->
+    </div>
+    <table *ngIf="( searchedResult| json) != '{}'; else content">
+      <tbody>
+        <br>
+        <tr>
+          <td>
+            <label style="margin-left:30px;font: normal normal bold 18px Lato;">Customer Name(Kana)Name</label><br>
+
+            <p matInput placeholder="Name(Kana)" type="text"
+              style="height:60px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;">
+             {{searchedResult?.kananame}}</p>
+          </td>
+          <td>
+            <label style="margin-left:30px;font: normal normal bold 18px Lato;">Customer Name(Kana)Lastname</label><br>
+            <p matInput type="text" placeholder="Lastname(Kana)"
+              style="height:60px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;">
+              {{searchedResult?.kanalastname}}</p>
+          </td>
+          <td>
+            <label style="margin-left:30px;font: normal normal bold 18px Lato;">Email Id</label><br>
+            <p type="email" id="email" placeholder="E-mail Id" 
+              style="height:60px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;">
+              {{searchedResult?.email}}</p>
+          </td>
+
+        </tr>
+        <br>
+        <tr>
+          <td>
+            <label style="margin-left:30px;font: normal normal bold 18px Lato;">Customer Name(Kanji)Name</label><br>
+            <p placeholder="Name(kanji)" type="text" 
+              style="height:60px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;">
+              {{searchedResult?.kanjiname}}</p>
+          </td>
+          <td>
+            <label style="margin-left:30px;font: normal normal bold 18px Lato;">Customer Name(Kanji)Lastname</label><br>
+            <p matInput placeholder="Lastname(Kanji)" type="text" 
+                           style="height:60px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;">
+              {{searchedResult?.kanjilastname}}</p>
+          </td>
+          <td>
+            <label style="margin-left:30px;font: normal normal bold 18px Lato;">Gender</label><br>
+            <p class="form-control"       
+              style="height:60px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;">
+              {{searchedResult?.gender}}</p>
+          </td>
+
+        </tr>
+
+        <br>
+        <tr>
+          <td> <label style="margin-left:30px;font: normal normal bold 18px Lato;">Date Of Birth</label><br>
+            <p type="date" id="birthday"
+              style="height:60px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;">
+              {{searchedResult?.dob}}</p>
+          </td>
+
+          <td>
+            <label style="margin-left:30px;font: normal normal bold 18px Lato;">Cell Phone 1 </label><br>
+            <p matInput type="number"  id="cell1" placeholder="Number 1" 
+              style="height:60px;width:100px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;">
+              {{searchedResult?.cell1}}</p>
+          </td>
+          <td>
+            <label style="margin-left:30px;font: normal normal bold 18px Lato;">Cell Phone 2</label><br>
+            <p matInput type="number" id="cell2" placeholder="Number 2" 
+              style="height:60px;width:100px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;">
+              {{searchedResult?.cell2}}</p>
+          </td>
+
+        </tr>
+        <br>
+        <tr>
+
+          <td><label style="margin-left:30px;font: normal normal bold 18px Lato;">Address Line 1</label><br>
+            <p matInput type="text"  id="add1" placeholder="Address Line 1" 
+              style="height:60px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;">
+              {{searchedResult?.add1}}
+            </p>
+          </td>
+          <td><label style="margin-left:30px;font: normal normal bold 18px Lato;">Address Line 2</label><br>
+            <p type="text"  id="add2" placeholder="Address Line 2" 
+              style="height:60px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;">
+              {{searchedResult?.add1}}
+            </p>
+          </td>
+          <td><label style="margin-left:30px;font: normal normal bold 18px Lato;">Address Line 3</label><br>
+            <p type="text"  id="add3" placeholder="Address Line 3" 
+              style="height:60px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;">
+              {{searchedResult?.add1}} </p>
+          </td>
+        </tr>
+        <br>
+        <tr>
+          <td>
+            <label style="margin-left:30px;font: normal normal bold 18px Lato;">Area Code</label><br>
+            <p type="number"  id="phone1" matInput placeholder="+" 
+              style="height:60px;width:80px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;">
+              {{searchedResult?.phone1}}</p>
+          </td>
+          <td><label style="margin-left:30px;font: normal normal bold 18px Lato;">Exchange Number</label><br>
+            <p type="number"  id="phone2" matInput placeholder="Number" 
+              style="height:60px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;">
+              {{searchedResult?.phone2}}</p>
+          </td>
+          <td><label style="margin-left:30px;font: normal normal bold 18px Lato;">Subscriber Number</label><br>
+            <p type="number"  id="phone3" matInput placeholder="Number" 
+              style="height:60px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;">
+              {{searchedResult?.phone3}}</p>
+          </td>
+        </tr>
+
+
+      </tbody>
+    </table>
+    <ng-template #content> <label class="noDataCss">No Data Found</label></ng-template>
+    <!-- </mat-card-content> -->
+  </form>
+
+  <mat-card-footer>
+    <!--        -->
+
+  </mat-card-footer>
+</mat-card>

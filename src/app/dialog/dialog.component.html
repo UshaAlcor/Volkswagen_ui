@@ -1,0 +1,291 @@
+<!-- dialog-box.component.html -->
+<h1 mat-dialog-title>
+ CLICK TO EDIT THE FIELDS :: <strong>{{ action }}</strong>
+</h1>
+<div mat-dialog-content style="background-color:#FFFFFF;width:800px !important;height:530px;">
+ <!-- <p style="background-color:white;width:500px !important;height:100px;margin-left:50px;">
+  <mat-form-field style="background-color:white;width:400px !important;height:80px;">
+    <label style="margin-left:30px;font: normal normal bold 18px Lato;">Name(Kana)LastName</label><br>
+    <input
+      placeholder="{{ action }} Kanalastname"
+      matInput
+      [(ngModel)]="local_data.kananame"
+    />
+  </mat-form-field>
+ </p>
+ 
+  <br>
+  <p>
+    <mat-form-field >
+      <label style="margin-left:30px;font: normal normal bold 18px Lato;">Name(Kana)Name</label><br>
+      <input style="height:40px;width:100px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"
+      placeholder="{{ action }} Kananame"
+      matInput
+      [(ngModel)]="local_data.kanalastname"
+    />
+    </mat-form-field>
+  </p>
+ 
+ 
+<br>
+<p>
+  <mat-form-field >
+    <label style="margin-left:30px;font: normal normal bold 18px Lato;">Email</label><br>
+      <input
+      placeholder="{{ action }} Email"
+      matInput
+      [(ngModel)]="local_data.email"
+    />
+  </mat-form-field>
+</p> -->
+
+<form class="example-form" style="background-color:#FFFFFF;width:1300px;height:700px;margin-left:50px;"
+[formGroup]="updateForm" >
+<!-- <mat-card-content>  -->
+<!-- <div class="example-button-row">
+  <input type="search" placeholder=" Search..." id="form1"
+    style="background-color:#F5F5F5;margin-top:30px;color:black;width:500px;height:30px;margin-left:10px;"
+    class="form-control" />
+  <button mat-button style="margin-left :30px;background-color:#001E50;color:white;">Search</button>
+
+  <hr style="margin-top:30px;">
+   <a mat-button href="https://www.google.com/" target="_blank">Link</a>
+</div> -->
+
+  <table *ngIf="action != 'Delete'; else elseTemplate">
+    <tbody>
+      <br>
+      <tr>
+        <td>
+          <label style="margin-left:30px;font: normal normal bold 18px Lato;">Name(Kana)LastName</label><br>
+          <!-- <input matInput  type="text" class="form-control" id="kananame"
+            formControlName="kananame" contenteditable="true" placeholder="{{ action }} Kananame" [(ngModel)]="local_data.kananame"
+            style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"/><hr style="width:350px;margin-left:30px;">
+        </td> -->
+        <input class="form-control" id="kanalastname"
+        formControlName="kanalastname"
+        placeholder="{{ action }} Kanalastname"  style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"
+        matInput
+        [(ngModel)]="local_data.kanalastname"
+      /></td>
+        <td>
+          <label style="margin-left:30px;font: normal normal bold 18px Lato;">Name(Kana)Name</label><br>
+          <!-- <input matInput type="text" class="form-control" id="kanalastname" placeholder="{{ action }} Kananame" [(ngModel)]="local_data.kananame"
+            formControlName="kanalastname" contenteditable="true"
+            style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"/><hr style="width:350px;margin-left:30px;">
+        </td> -->
+        <input class="form-control" id="kananame"
+        formControlName="kananame"
+        placeholder="{{ action }} Kananame"  style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"
+        matInput
+        [(ngModel)]="local_data.kananame"
+      /></td>
+        
+         <td>
+          <label style="margin-left:30px;font: normal normal bold 18px Lato;">Email Id</label><br>
+          <!-- <input type="email" class="form-control" id="email" placeholder="{{ action }} Email" [(ngModel)]="local_data.email" formControlName="email" contenteditable="true"
+            style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"/><hr style="width:350px;margin-left:30px;">
+        </td> -->
+        <input class="form-control" id="email"
+        formControlName="email"
+        placeholder="{{ action }} Email Id"  style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"
+        matInput
+        [(ngModel)]="local_data.email"
+      /></td>
+
+      </tr>
+<br>
+      <tr>
+        <td>
+          <label style="margin-left:30px;font: normal normal bold 18px Lato;">Customer Name(Kanji)Name</label><br>
+          <!-- <p placeholder="Name(kanji)" type="text" class="form-control" id="kanjiname" formControlName="kanjiname"  contenteditable="true"
+            style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;">
+            some text</p><hr style="width:350px;margin-left:30px;">
+        </td> -->
+        <input class="form-control" id="kanjiname"
+        formControlName="kanjiname"
+        placeholder="{{ action }} Kanjiname"  style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"
+        matInput
+        [(ngModel)]="local_data.kanjiname"
+      /></td>
+        <td>
+          <label style="margin-left:30px;font: normal normal bold 18px Lato;">Customer Name(Kanji)Lastname</label><br>
+          <!-- <p matInput placeholder="Lastname(Kanji)" type="text" class="form-control" id="kanjilastname"
+            formControlName="kanjilastname" contenteditable="true"
+            style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;">
+            some text</p><hr style="width:350px;margin-left:30px;">
+        </td> -->
+        <input class="form-control" id="kanjilastname"
+        formControlName="kanjilastname"
+        placeholder="{{ action }} Kanjilastname"  style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"
+        matInput
+        [(ngModel)]="local_data.kanjilastname"
+      /></td>
+        <td>
+          <label style="margin-left:30px;font: normal normal bold 18px Lato;">Gender</label><br>
+          <!-- <p class="form-control" id="gender" contenteditable="true"
+            style="width:350px;margin-left:5px;height:40px;margin-bottom:200px;margin-left:30px;"
+            formControlName="gender"
+            style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;">
+            some text</p><hr style="width:350px;margin-left:30px;">
+        </td> -->
+        <input class="form-control" id="gender"
+        formControlName="gender" 
+        placeholder="{{ action }} gender"  style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"
+        matInput
+        [(ngModel)]="local_data.gender"
+      /></td>
+
+      </tr>
+
+      <br>
+      <tr>
+        <td> <label style="margin-left:30px;font: normal normal bold 18px Lato;">Date Of Birth</label><br>
+          <!-- <p type="date" id="birthday" name="birthday" class="dob" id="dob" contenteditable="true"
+            style="background-color:#F5F5F5;width:230px;height:30px;margin-bottom:20px;margin-left:30px;"
+            formControlName="dob"
+            style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;">
+            some text</p><hr style="width:350px;margin-left:30px;">
+        </td> -->
+        <input class="form-control" id="dob"
+        formControlName="dob" 
+        placeholder="{{ action }} D.O.B"  style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"
+        matInput
+        [(ngModel)]="local_data.dob"
+      /></td>
+
+        <td>
+          <label style="margin-left:30px;font: normal normal bold 18px Lato;">Cell Phone 1 </label><br>
+          <!-- <p matInput type="number" class="form-control" id="cell1" placeholder="Number 1" formControlName="cell1" contenteditable="true"
+            style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;">
+            some text</p><hr style="width:350px;margin-left:30px;">
+        </td> -->
+        <input class="form-control" id="cell1"
+        formControlName="cell1" 
+        placeholder="{{ action }} cell1"  style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"
+        matInput
+        [(ngModel)]="local_data.cell1"
+      /></td>
+        <td>
+          <label style="margin-left:30px;font: normal normal bold 18px Lato;">Cell Phone 2</label><br>
+          <!-- <p matInput type="number" class="form-control" id="cell2" placeholder="Number 2" formControlName="cell2" contenteditable="true"
+            style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;">
+            some text</p><hr style="width:350px;margin-left:30px;">
+        </td> -->
+        <input class="form-control" id="cell2"
+        formControlName="cell2" 
+        placeholder="{{ action }} cell2"  style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"
+        matInput
+        [(ngModel)]="local_data.cell2"
+      /></td>
+
+      </tr>
+      <br>
+      <tr>
+
+        <td><label style="margin-left:30px;font: normal normal bold 18px Lato;">Address Line 1</label><br>
+          <!-- <p matInput type="text" class="form-control" id="add1" placeholder="Address Line 1" formControlName="add1" contenteditable="true"
+            style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;">
+            some text</p><hr style="width:350px;margin-left:30px;">
+        </td> -->
+        <input class="form-control" id="add1"
+        formControlName="add1" 
+        placeholder="{{ action }} add1"  style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"
+        matInput
+        [(ngModel)]="local_data.add1"
+      /></td>
+        <td><label style="margin-left:30px;font: normal normal bold 18px Lato;">Address Line 2</label><br>
+          <!-- <p type="text" class="form-control" id="add2" placeholder="Address Line 2" formControlName="add2" contenteditable="true"
+            style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;">
+            some text</p><hr style="width:350px;margin-left:30px;">
+        </td> -->
+        <input class="form-control" id="ad2"
+        formControlName="add2" 
+        placeholder="{{ action }} add2"  style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"
+        matInput
+        [(ngModel)]="local_data.add2"
+      /></td>
+        <td><label style="margin-left:30px;font: normal normal bold 18px Lato;">Address Line 3</label><br>
+          <!-- <p type="text" class="form-control" id="add3" placeholder="Address Line 3" formControlName="add3" contenteditable="true"
+            style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;">
+            some text</p><hr style="width:350px;margin-left:30px;">
+        </td> -->
+        <input class="form-control" id="add3"
+        formControlName="add3" 
+        placeholder="{{ action }} add3"  style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"
+        matInput
+        [(ngModel)]="local_data.add3"
+      /></td>
+      </tr>
+      <br>
+      <tr>
+        <td>
+          <label style="margin-left:30px;font: normal normal bold 18px Lato;">Area Code</label><br>
+          <!-- <p type="number" class="form-control" id="phone1" matInput placeholder="+" formControlName="phone1" contenteditable="true"
+            style="height:40px;width:200px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;">
+            code</p><hr style="width:200px;margin-left:30px;">
+        </td> -->
+        <input class="form-control" id="phone1"
+        formControlName="phone1" 
+        placeholder="{{ action }} Area code"  style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"
+        matInput
+        [(ngModel)]="local_data.phone1"
+      /></td>
+        <td><label style="margin-left:30px;font: normal normal bold 18px Lato;">Exchange Number</label><br>
+          <!-- <p type="number" class="form-control" id="phone2" matInput placeholder="Number" formControlName="phone2" contenteditable="true"
+            style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;">
+            some text</p><hr style="width:350px;margin-left:30px;">
+        </td> -->
+        <input class="form-control" id="phone2"
+        formControlName="phone2" 
+        placeholder="{{ action }} Exchange Number"  style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"
+        matInput
+        [(ngModel)]="local_data.phone2"
+      /></td>
+      <td><label style="margin-left:30px;font: normal normal bold 18px Lato;">Subscriber Number</label><br>
+        <!-- <p type="number" class="form-control" id="phone2" matInput placeholder="Number" formControlName="phone2" contenteditable="true"
+          style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;">
+          some text</p><hr style="width:350px;margin-left:30px;">
+      </td> -->
+      <input class="form-control" id="phone3"
+      formControlName="phone3" 
+      placeholder="{{ action }} Subscriber Number"  style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;"
+      matInput
+      [(ngModel)]="local_data.phone3"
+    /></td>
+      </tr> 
+
+
+    </tbody>
+  </table>
+</form>
+
+  
+  <ng-template #elseTemplate>
+    <p>Please verify the data before you proceed to delete -</p> 
+    <hr>
+    <p><label style="margin-left:260px;font: normal normal bold 18px Lato;">Name(Kana)LastName</label><br><b style="margin-left:260px;">{{local_data.kanalastname}}</b></p>
+    <br>
+    <p><label style="margin-left:260px;font: normal normal bold 18px Lato;">Name(Kana)Name</label><br><b style="margin-left:260px;">{{local_data.kananame}}</b>
+    </p>
+    <br>
+    <p><label style="margin-left:260px;font: normal normal bold 18px Lato;">Email</label><br><b style="margin-left:260px;">{{local_data.email}}</b>
+    </p>
+    <br>
+    <p> <label style="margin-left:260px;font: normal normal bold 18px Lato;">Cell-1</label><br><b style="margin-left:260px;">{{local_data.cell1}}</b>
+    </p>
+    <hr>
+      <p style="margin-left:190px;font: normal normal bold 18px Lato;">Are you sure you want to delete ?</p>  
+   
+  </ng-template>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="doAction()">{{ action }}</button>
+  <button mat-button (click)="refreshPage()" (onKeyUp)="closeDialog()">Save</button>
+  <button mat-button (click)="updatesSubmitted(action)">Submit updates</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Close
+  </button>
+  
+    
+</div>
+

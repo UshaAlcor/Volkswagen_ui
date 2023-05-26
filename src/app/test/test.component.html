@@ -1,0 +1,70 @@
+<mat-card class="box" style="background-color:#F5F5F5;height:1050px;width:1450px;">
+  <mat-card-header>
+    <mat-card-title layout="row" layout-align="center center" style="margin-left:30px;text-align: left;MARGIN-TOP:50PX;
+      font: normal normal bold 22px Lato;
+      letter-spacing: 0px;
+      color: #7C7C7C;
+      opacity: 1;">Customer Information Management || 顧客情報管理 || Kokyaku jōhō kanri</mat-card-title>
+
+<div class="example-button-row">
+  <button mat-button style="margin-left:260px;margin-top:40px;background-color:#001E50;color:#FFFFFF;"
+      (click)="information()">View Records || 記録を見る || Kiroku o miru </button>
+  <!-- <a mat-button href="https://www.google.com/" target="_blank">Link</a> -->
+</div>
+  </mat-card-header>
+  <br>
+  <hr>
+  <mat-form-field>
+ <mat-label> Search record || 検索記録 || Kensaku kiroku ||</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ヤマモト" #input Style="background-color:white;height:50px;">
+  </mat-form-field>
+
+  <form class="example-form" style="background-color:#FFFFFF;width:1300px;height:700px;margin-left:50px;">
+    <!-- <mat-card-content>  -->
+    <div class="example-header"></div>
+
+
+    <mat-table [dataSource]="dataSource" matSort>
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.id }} </mat-cell>
+      </ng-container>
+
+       <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell (click)="sortKana()" *matHeaderCellDef mat-sort-header>
+          Name || 名前 || Namae
+          <span *ngIf="sortTable === 'asc'">&#x25B2;</span>
+          <span *ngIf="sortTable === 'desc'">&#x25BC;</span>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.kanalastname }} </mat-cell>
+        
+      </ng-container>
+      <!-- email -->
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Email || Eメール || E mēru
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.email }} </mat-cell>  
+      </ng-container>
+
+      <!--Action-->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action || アクション || Akushon</th>
+        <td mat-cell *matCellDef="let element" class="action-link">
+          <a (click)="openDialog('Update', element)" >Edit</a> |
+          <a (click)="openDialog('Delete', element)" >Delete</a>
+        </td>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+    </mat-table>
+   
+
+  </form>
+
+  <mat-card-footer>
+  </mat-card-footer>
+</mat-card>
