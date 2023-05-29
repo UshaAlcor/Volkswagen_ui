@@ -50,11 +50,40 @@ export class ListcustomerComponent {
 
   //delete
 
-delete(item: any): void {
-  const itemIndex = this.inforesponse.indexOf(item); 
-  const deletedrecord = this.inforesponse.splice(itemIndex, 1);
-  console.log('deleted', deletedrecord)
-  console.log('item',item.id)
+// delete(item: any): void {
+//   const itemIndex = this.inforesponse.indexOf(item); 
+//   const deletedrecord = this.inforesponse.splice(itemIndex, 1);
+//   console.log('deleted', deletedrecord)
+//   console.log('item',item.id)
+// }
+delete(item:any)
+{
+  this.loginAuth.deleteUser(item.id).subscribe((res: any) => {
+   
+    
+     alert(res.msg);
+    
+   
+    alert(res.msg)
+     this.search();
+  })
+  
+}
+search() {
+
+  this.loginAuth.getSearchByparam([
+
+  ]).subscribe((res: any) => {
+    this.inforesponse=res
+console.log(this.inforesponse)
+    // if (res == 'Failure'){
+    //  this.isUserValid = false;
+    //  alert('Something went wrong');
+    // } else {
+    //  this.isUserValid =true;
+    //  alert('Search Successful');
+    // }
+});
 }
 
 alert(): void {

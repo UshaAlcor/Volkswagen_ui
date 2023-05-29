@@ -94,7 +94,7 @@ export class AuthService {
   registerUser(user: Array<String>) {
 
     return this.http.post(
-      environment.apiBase + 'CustInfo',
+      environment.apiBase + 'CustInfo/',
       {
         kanjiname: user[0],
         kanjilastname: user[1],
@@ -148,3 +148,14 @@ search=search
   }
 
 }
+export const MY_DATE_FORMATS = {
+  parse: {
+    dateInput: 'YYYY-MM-DD',
+  },
+  display: {
+    dateInput: 'YYYY-MM-DD',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY'
+  },
+};
