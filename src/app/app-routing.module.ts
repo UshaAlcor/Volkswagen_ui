@@ -53,19 +53,25 @@ const routes: Routes = [
     path:'update',
     component: UpdateinfoComponent
   },
+  // this url is to open the pdf page and after clicking on download or printpdf it will open in a new window
+ //this is for Japnanese version
   {
     path:'printDetail',
     component: PrintPdfComponent
   },
+  //this url is for Japanese version but after clicking on download and print pdf it open ina new tab
   {
     path:'printDetail/tab',
     component: PrintPdfComponent
   },
+  //this url is for english version and after clicking on download or print it will open in a new window
   {
     path:'printDetailEng',
     component: PrintPdfEngComponent
  
   },
+   //this url is for english version and after clicking on download or print it will open in a new tab
+ 
   {
     path:'printDetailEng/tab',
     component: PrintPdfEngComponent

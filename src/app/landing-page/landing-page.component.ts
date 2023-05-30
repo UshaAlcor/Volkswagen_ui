@@ -117,13 +117,11 @@ registerSubmitted() {
 }
 
 updateDOB(dateObject:any) {
-  // convert object to string then trim it to yyyy-mm-dd
-  const stringified = JSON.stringify(dateObject.value);
-  const dob = stringified.substring(1, 11);
-
- 
-  this.date = dob;
-  
+  let d = new Date(dateObject.value);
+  const offset = d.getTimezoneOffset()
+  d = new Date(d.getTime() - (offset*60*1000))
+  this.date=d.toISOString().split('T')[0];
+  console.log( this.date); 
 }
 }
 
