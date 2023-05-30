@@ -8,8 +8,6 @@ import { Router } from '@angular/router';
 import { AlertDialogModel, AlertDialogComponent } from 'src/app/alert-dialog/alert-dialog.component';
 import { AuthService } from 'src/app/auth.service';
 
-// var spawn = require('child_process').spawn
-//  var child = spawn('pwd')
 @Component({
   selector: 'app-generate-pdf',
   templateUrl: './generate-pdf.component.html',
@@ -23,6 +21,7 @@ export class GeneratePdfComponent {
   private pdfComponent!: PdfViewerComponent;result: any;
   isdownloadClick: boolean=false;
   ispasswordMatched: any=false;
+  tabView: boolean;
 ;
   constructor(private  loginAuth: AuthService,protected sanitizer: DomSanitizer,public dialog: MatDialog,private router:Router) { 
     this.pdfSrc=this.loginAuth.pdfImg
@@ -30,6 +29,14 @@ export class GeneratePdfComponent {
   }
   ngOnInit()
   {
+    console.log(this.router.url )
+    if(this.router.url==='/printPdf/tab'){
+      this.tabView=true
+    }
+    else{
+      this.tabView=false
+    }
+
     this.pdfSrc=this.loginAuth.pdfImg
     console.log(this.pdfSrc)
   }
@@ -54,7 +61,15 @@ export class GeneratePdfComponent {
 
   
   this.loginAuth.pdfFile.save(fileName);
+  if(!this.tabView)
+  {
   window.open(this.loginAuth.pdfFile.output('bloburl'), '_blank',"top=100,left=200,width=1000,height=500");
+  }
+  if(this.tabView)
+  {
+  window.open(this.loginAuth.pdfFile.output('bloburl'), '_blank')
+  
+  }
   //window.open(this.loginAuth.pdfFile.output('bloburl')', '_blank', 'toolbar=0,location=0,menubar=0');
    // window.open(this.loginAuth.pdfFile.output('bloburl' , "", "width=200,height=100"));
 
@@ -63,13 +78,34 @@ export class GeneratePdfComponent {
 }
 
 printPdf() {
+  
   this.loginAuth.printPDF.autoPrint();
+  if(!this.tabView)
+  {
+  window.open(this.loginAuth.printPDF.output('bloburl'), '_blank',"top=100,left=200,width=1000,height=500");
+  }
+  if(this.tabView)
+  {
+  window.open(this.loginAuth.printPDF.output('bloburl'), '_blank')
+  
+  }
  // window.open(this.loginAuth.printPDF.output('bloburl'), '_blank');
- window.open(this.loginAuth.printPDF.output('bloburl'), '_blank',"top=100,left=200,width=1000,height=500");
+// window.open(this.loginAuth.printPDF.output('bloburl'), '_blank',"top=100,left=200,width=1000,height=500");
 
    
  }
+callBackFn(pdf: PDFDocumentProxy) {
 
+  console.log(pdf);
+  if (pdf) {
+    const printOptions = {
+      paperWidth: 8.5,
+      paperHeight: 11,
+      orientation: 'portrait',
+    };
+    //pdf.open(printOptions);  
+  }
+}
 
 
 

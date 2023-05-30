@@ -1,4 +1,4 @@
-import { Component,  ViewChild } from '@angular/core';
+import { Component, ElementRef, SecurityContext, ViewChild } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { PDFDocumentProxy, PdfViewerComponent } from 'ng2-pdf-viewer';
 import { AuthService } from '../auth.service';
@@ -9,6 +9,8 @@ import { AlertDialogComponent, AlertDialogModel } from '../alert-dialog/alert-di
 
 import { Router } from '@angular/router';
 
+// var spawn = require('child_process').spawn
+//  var child = spawn('pwd')
 
 @Component({
   selector: 'app-generate-pdf-eng',
@@ -25,9 +27,23 @@ export class GeneratePdfEngComponent {
     private pdfComponent!: PdfViewerComponent;result: any;
     isdownloadClick: boolean=false;
     ispasswordMatched: any=false;
+  tabView: boolean;
   ;
     constructor(private  loginAuth: AuthService,protected sanitizer: DomSanitizer,public dialog: MatDialog,private router:Router) { 
       this.pdfSrc=this.loginAuth.pdfImg
+    }
+    ngOnInit()
+    {
+      console.log(this.router.url )
+      if(this.router.url==='/printPdfeng/tab'){
+        this.tabView=true
+      }
+      else{
+        this.tabView=false
+      }
+  
+      this.pdfSrc=this.loginAuth.pdfImg
+      console.log(this.pdfSrc)
     }
     head=[
       'kanalastname','kananame','kanjilastname','kanjiname','gender','email','cell1','cell2','phone1'
@@ -50,7 +66,15 @@ export class GeneratePdfEngComponent {
   
     
       this.loginAuth.pdfFile.save(fileName);
-      window.open(this.loginAuth.pdfFile.output('bloburl')) 
+      if(!this.tabView)
+      {
+      window.open(this.loginAuth.pdfFile.output('bloburl'), '_blank',"top=100,left=200,width=1000,height=500");
+      }
+      if(this.tabView)
+      {
+      window.open(this.loginAuth.pdfFile.output('bloburl'), '_blank')
+      
+      }
      
        //window.open(URL.createObjectURL( this.loginAuth.pdfFile.output("blob")))
        
@@ -73,7 +97,15 @@ export class GeneratePdfEngComponent {
   
   printPdf() {
     this.loginAuth.printPDF.autoPrint();
-    window.open(this.loginAuth.printPDF.output('bloburl'), '_blank');
+    if(!this.tabView)
+    {
+    window.open(this.loginAuth.printPDF.output('bloburl'), '_blank',"top=100,left=200,width=1000,height=500");
+    }
+    if(this.tabView)
+    {
+    window.open(this.loginAuth.printPDF.output('bloburl'), '_blank')
+    
+    }
      
    }
   callBackFn(pdf: PDFDocumentProxy) {

@@ -29,7 +29,8 @@
           [render-text]="false"
           [external-link-target]="'blank'"
           [autoresize]="false"
-
+          
+          (after-load-complete)="callBackFn($event)"
           style="width: 100vw;  height: calc(100vh - 100px);overflow: hidden;"
         ></pdf-viewer>
       </div>

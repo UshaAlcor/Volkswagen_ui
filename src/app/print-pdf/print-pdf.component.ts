@@ -15,9 +15,6 @@ import jspdf from 'jspdf';
 
 import { AlertDialogComponent, AlertDialogModel } from '../alert-dialog/alert-dialog.component';
 
-
-
-
 @Component({
   selector: 'app-print-pdf',
   templateUrl: './print-pdf.component.html',
@@ -88,33 +85,35 @@ custInfoResponse: any;
   });
  getCustData ()
   {
-    let id="1172286077";
+    let id="143750541";
     this.loginAuth.getCustInfo(id).subscribe(data=>{
 
-
+console.log(data)
 
     this.customerInfo = {
-      kanjiname: data[0].kanjiname,
-      kanjilastname: data[0].kanjilastname,
-      kananame:data[0].kananame,
-      kanalastname:data[0].kanalastname,
-      dob:data[0].dob,
-      gender:data[0].gender,
-      email: data[0].email,
+      kanjiname: data[1].kanjiname,
+      kanjilastname: data[1].kanjilastname,
+      kananame:data[1].kananame,
+      kanalastname:data[1].kanalastname,
+      dob:data[1].dob,
+      gender:data[1].gender,
+      email: data[1].email,
      
-      cell1:  String(data[0].cell1).substring(0,3),
-      cell2: String(data[0].cell1).substring(3,7),
-      cell3: String(data[0].cell1).substring(7,11),
-      cell4: String(data[0].cell2).substring(0,3),
-      cell5:String(data[0].cell2).substring(3,7),
-      cell6:String(data[0].cell2).substring(7,11),
-      add1:data[0].add1,
-      add2:data[0].add2,
-      add3:data[0].add3,
+      cell1:  String(data[1].cell1).substring(0,3),
+      cell2: String(data[1].cell1).substring(3,7),
+      cell3: String(data[1].cell1).substring(7,11),
+      cell4: String(data[1].cell2).substring(0,3),
+      cell5:String(data[1].cell2).substring(3,7),
+      cell6:String(data[1].cell2).substring(7,11),
+      add1:data[1].add1,
+      add2:data[1].add2,
+      add3:data[1].add3,
+      add4:data[1].add4,
+      add5:data[1].add5,
      
-      phone1:data[0].phone1,
-      phone2: data[0].phone2,
-      phone3: data[0].phone3
+      phone1:data[1].phone1,
+      phone2: data[1].phone2,
+      phone3: data[1].phone3
      
 
     }
@@ -316,18 +315,14 @@ printPdf() {
  }
 
 openDialog(){
-//   const url = this.router.serializeUrl(
-//     this.router.createUrlTree(['/printPdf'])
-//   );
 
-//   window.open(url);
-// }
-//window.open('/printPdf')
+if(this.router.url=='/printDetail'){
  this.router.navigate(['/printPdf'])
-  // this.dialog.open(GeneratePdfComponent, {
- 
-  //   panelClass:'fullscreen-dialog',
-  // });
+}
+if(this.router.url=='/printDetail/tab'){
+  this.router.navigate(['/printPdf/tab'])
+}
+
 }
 
 }

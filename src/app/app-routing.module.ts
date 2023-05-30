@@ -58,7 +58,16 @@ const routes: Routes = [
     component: PrintPdfComponent
   },
   {
+    path:'printDetail/tab',
+    component: PrintPdfComponent
+  },
+  {
     path:'printDetailEng',
+    component: PrintPdfEngComponent
+ 
+  },
+  {
+    path:'printDetailEng/tab',
     component: PrintPdfEngComponent
  
   },
@@ -67,12 +76,22 @@ const routes: Routes = [
     component: GeneratePdfComponent
  
   },
+
+  {
+    path:'printPdf/tab',
+    component: GeneratePdfComponent
+ 
+  },
   {
     path:'printPdfeng',
     component: GeneratePdfEngComponent
  
   },
-
+  {
+    path:'printPdfeng/tab',
+    component: GeneratePdfEngComponent
+ 
+  },
   
 ];
 

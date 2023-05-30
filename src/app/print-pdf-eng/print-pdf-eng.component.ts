@@ -5,16 +5,14 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   import  jsPDF from 'jspdf';
   import { Router } from '@angular/router';
   import { PDFDocumentProxy, PdfViewerComponent } from 'ng2-pdf-viewer';
+  //import  jsPDF from 'jspdf';
+  
 
   
   import { MatDialog } from '@angular/material/dialog';
   import { ConfirmDialogComponent, ConfirmDialogModel } from '../confirm-dialog/confirm-dialog.component';
   import jspdf from 'jspdf';
-  
-  import { AlertDialogComponent, AlertDialogModel } from '../alert-dialog/alert-dialog.component';
-
-  //import * as htmlToPdfmake from 'html-to-pdfmake';
-
+ 
 @Component({
   selector: 'app-print-pdf-eng',
   templateUrl: './print-pdf-eng.component.html',
@@ -111,6 +109,9 @@ export class PrintPdfEngComponent {
         add1:data[0].add1,
         add2:data[0].add2,
         add3:data[0].add3,
+        add4:data[0].add4,
+        add5:data[0].add5,
+       
        
         phone1:data[0].phone1,
         phone2: data[0].phone2,
@@ -328,14 +329,21 @@ export class PrintPdfEngComponent {
     window.open(this.loginAuth.pdfFile.output('bloburl'), '_blank');
      
    }
-  
-  openDialog(){
-    this.router.navigate(['/printPdfeng'])
-    // this.dialog.open(GeneratePdfComponent, {
+   openDialog(){
+
+    if(this.router.url=='/printDetailEng'){
+     this.router.navigate(['/printPdfeng'])
+    }
+    if(this.router.url=='/printDetailEng/tab'){
+      this.router.navigate(['/printPdfeng/tab'])
+    }
+    
+    }
+  // openDialog(){
+
+  //   this.router.navigate(['/printPdfeng'])
    
-    //   panelClass:'fullscreen-dialog',
-    // });
-  }
+  // }
   
   }
   
