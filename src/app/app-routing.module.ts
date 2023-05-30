@@ -9,6 +9,10 @@ import { ListcustomerComponent } from './listcustomer/listcustomer.component';
 import { CustomerInformationComponent } from './customer-information/customer-information.component';
 import { DetailedCustInfoComponent } from './detailed-cust-info/detailed-cust-info.component';
 import { TestComponent } from './test/test.component';
+import { GeneratePdfEngComponent } from './generate-pdf-eng/generate-pdf-eng.component';
+import { GeneratePdfComponent } from './generate-pdf/generate-pdf.component';
+import { PrintPdfEngComponent } from './print-pdf-eng/print-pdf-eng.component';
+import { PrintPdfComponent } from './print-pdf/print-pdf.component';
 
 const routes: Routes = [
 
@@ -48,6 +52,25 @@ const routes: Routes = [
   {
     path:'update',
     component: UpdateinfoComponent
+  },
+  {
+    path:'printDetail',
+    component: PrintPdfComponent
+  },
+  {
+    path:'printDetailEng',
+    component: PrintPdfEngComponent
+ 
+  },
+  {
+    path:'printPdf',
+    component: GeneratePdfComponent
+ 
+  },
+  {
+    path:'printPdfeng',
+    component: GeneratePdfEngComponent
+ 
   },
 
   

@@ -40,7 +40,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatNativeDateModule} from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthService } from './auth.service';
+import { AuthService, MY_DATE_FORMATS } from './auth.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 
@@ -64,6 +64,13 @@ import { ListcustomerComponent } from './listcustomer/listcustomer.component';
 import { DetailedCustInfoComponent } from './detailed-cust-info/detailed-cust-info.component';
 import { TestComponent } from './test/test.component';
 import { CustomerInformationComponent } from './customer-information/customer-information.component';
+import { PrintPdfComponent } from './print-pdf/print-pdf.component';
+import { GeneratePdfComponent } from './generate-pdf/generate-pdf.component';
+import { GeneratePdfEngComponent } from './generate-pdf-eng/generate-pdf-eng.component';
+import { PrintPdfEngComponent } from './print-pdf-eng/print-pdf-eng.component';
+import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 
 
@@ -81,7 +88,13 @@ import { CustomerInformationComponent } from './customer-information/customer-in
     TestComponent,
     DetailedCustInfoComponent,
     CustomerInformationComponent,
-    SearchFilterPipe
+    SearchFilterPipe,
+    PrintPdfEngComponent,
+    GeneratePdfEngComponent,
+    PrintPdfComponent,
+    GeneratePdfComponent,
+    AlertDialogComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -127,7 +140,8 @@ import { CustomerInformationComponent } from './customer-information/customer-in
     BrowserAnimationsModule,           // <----- this module will be deprecated in the future version.
     MatDatepickerModule,        // <----- import(must)
     MatNativeDateModule,        // <----- import for date formating(optional)
-    MatMomentDateModule
+    MatMomentDateModule,
+    PdfViewerModule
     ],
     entryComponents: [],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'ja-JP'},
@@ -139,11 +153,7 @@ import { CustomerInformationComponent } from './customer-information/customer-in
     provide: MatDialogRef,
     useValue: {}
   },
-  {
-    provide: MAT_DATE_FORMATS,
-     useValue: MAT_MOMENT_DATE_FORMATS,
-
-    },
+   { provide: MAT_DATE_FORMATS, useValue:MY_DATE_FORMATS },
     AuthService],
   
    
