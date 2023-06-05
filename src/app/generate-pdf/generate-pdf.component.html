@@ -1,0 +1,56 @@
+<div class="container">
+  <button  class="close" mat-button style="float: right;"(click)="noclick()">X</button>
+  <mat-card-header>
+    <mat-card-title layout="row" layout-align="center center" style="margin-left:662px;text-align: left;MARGIN-TOP:50PX;
+      font: normal normal bold 22px Lato;
+      letter-spacing: 0px;
+      color: #7C7C7C;
+      text-align: center;
+      opacity: 1;">カスタマーカード</mat-card-title>
+   
+  </mat-card-header>
+  
+
+  <br>
+
+
+ 
+
+    <div class="container"  >
+        <pdf-viewer
+          [src]="pdfSrc"
+          [rotation]="0"
+          [original-size]="false"
+          [show-all]="true"
+          [fit-to-page]="true"
+          [zoom]="1"
+          [zoom-scale]="'page-width'"
+          [stick-to-page]="false"
+          [render-text]="false"
+          [external-link-target]="'blank'"
+          [autoresize]="false"
+          
+          (after-load-complete)="callBackFn($event)"
+          style="width: 100vw;  height: calc(100vh - 100px);overflow: hidden;"
+        ></pdf-viewer>
+      </div>
+
+ 
+   
+         <mat-card-footer>
+          
+            <div class="example-button-row" >
+              <!-- Download PDF -->
+              <button mat-raised-button color="primary"  style="    margin-top: 53px;
+             
+              margin-left: 97px;background-color:#001E50" (click)="ScreenDownload()">ダウンロードPDF</button>
+              <!-- print pdf -->
+              <button mat-raised-button color="primary" style="    margin-left: 1165px;
+              margin-top:-48px;background-color:#001E50;" (click)="printPdf()">プリント</button> 
+                  </div>
+  
+          </mat-card-footer>
+    
+       
+</div>
+

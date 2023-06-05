@@ -1,0 +1,233 @@
+<mat-card class="box" style="background-color:#F5F5F5;height:800px;">
+
+  <mat-card-header>
+    <mat-card-title layout="row" layout-align="center center" style="margin-left:50px;text-align: left;MARGIN-TOP:50PX;
+      font: normal normal bold 22px Lato;
+      letter-spacing: 0px;
+      color: #7C7C7C;
+      opacity: 1;">Detailed Customer Information || 顧客情報詳細 || Shōsaina kokyaku jōhō</mat-card-title>
+    <div class="example-button-row">
+      <!-- <button mat-button style="margin-left:90px;margin-top:40px;background-color:#001E50;color:#FFFFFF;">Edit Record ||
+        編集
+      </button> -->
+      <!-- <button mat-button style="margin-left:90px;margin-top:40px;"
+        (click)="confirmDialog()"><img src="/assets/pdf-file.png" />
+      </button> -->
+      <!-- <a mat-button href="https://www.google.com/" target="_blank">Link</a> -->
+    </div>
+
+  </mat-card-header>
+  <br>
+  
+  <div id="invoice" #invoice>
+    <form [formGroup]="dataForm"class="example-form" style="background-color:#FFFFFF;width:1200px;height:600px;margin-left:50px;"
+      >
+      <!-- <mat-card-content>  -->
+      <table>
+        <tbody>
+          <br>
+          <tr>
+
+
+            <td>
+              <label style="margin-left:30px;">お客様名（カナ）：姓
+              </label><br>
+              <mat-form-field class="example-full-width"
+                style="height:60px;width:550px;margin-left:5px;margin-left:30px;">
+                <input matInput type="text" class="form-control" id="kanalastname" formControlName="kanalastname" >
+              </mat-form-field>
+            </td>
+
+            <td>
+              <label style="margin-left:20px;">E-mail </label><br>
+              <mat-form-field class="example-full-width" style="width:550px;height:60px;margin-left:20px;">
+                <input matInput type="email" class="form-control" id="email"formControlName="email" >
+              </mat-form-field> 
+             
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label style="margin-left:30px;">お客様名（カナ）：名
+              </label><br>
+              <mat-form-field class="example-full-width" style="width:550px;height:60px;margin-left:20px;">
+                <input matInput type="text" class="form-control" id="kananame"formControlName="kananame" >
+              </mat-form-field>
+            </td>
+
+            <td>
+              <label style="margin-left:20px;">携帯電話</label>
+             
+              <label style="margin-left: 214px;">携帯電話2</label><br>
+           
+              <!-- <mat-form-field class="example-full-width" style="height:60px;width:270px;margin-left:20px;">
+                <input matInput type="number" class="form-control" id="cell1"formControlName="cell1" >
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width" style="height:60px;width:270px;margin-left:5px;">
+                <input matInput type="number" class="form-control" id="cell2"formControlName="cell2">
+              </mat-form-field> -->
+              <div class="main">
+                <div class="child1">
+              <mat-form-field class="example-full-width" style="width:80px;height:60px;margin-left:20px;">
+                <input type="text" class="form-control" id="phone1" matInput  formControlName="cell1">
+
+              </mat-form-field>
+              <mat-form-field class="example-full-width" style="width:80px;height:60px;margin-left:2px;">
+                <input type="text" class="form-control" id="phone2" matInput  formControlName="cell2" >
+              </mat-form-field>
+              <mat-form-field class="example-full-width" style="width:80px;height:60px;margin-left:2px;">
+                <input type="text" class="form-control" id="phone3" matInput formControlName="cell3"  >
+              </mat-form-field>
+            </div>
+            <div class="child2">
+           
+              <mat-form-field class="example-full-width" style="width:70px;height:60px;margin-left:31px;">
+                <input type="text" class="form-control" id="phone1" matInput  formControlName="cell4">
+
+              </mat-form-field>
+              <mat-form-field class="example-full-width" style="width:80px;height:60px;margin-left:2px;">
+                <input type="text" class="form-control" id="phone2" matInput  formControlName="cell5" >
+              </mat-form-field>
+              <mat-form-field class="example-full-width" style="width:127px;height:60px;margin-left:2px;">
+                <input type="text" class="form-control" id="phone3" matInput formControlName="cell6"  >
+              </mat-form-field>
+            </div>
+            </div>
+            </td>
+
+          </tr>
+
+          <tr>
+            <td>
+              <label style="margin-left:30px;">お客様名（漢字）：姓
+              </label><br>
+              <mat-form-field class="example-full-width" style="height:60px;width:550px;margin-left:30px;">
+                <input matInput type="text" class="form-control" id="kanjilastname"  formControlName="kanjilastname" >
+              </mat-form-field>
+            </td>
+
+            <td>
+              <label style="margin-left:20px;">電話番号</label><br>
+
+              <mat-form-field class="example-full-width" style="width:130px;height:60px;margin-left:22px;">
+                <input type="number" class="form-control" id="phone1" matInput  formControlName="phone1">
+
+              </mat-form-field>
+              <mat-form-field class="example-full-width" style="width:200px;height:60px;margin-left:5px;">
+                <input type="number" class="form-control" id="phone2" matInput  formControlName="phone2" >
+              </mat-form-field>
+              <mat-form-field class="example-full-width" style="width:200px;height:60px;margin-left:5px;">
+                <input type="number" class="form-control" id="phone3" matInput formControlName="phone3"  >
+              </mat-form-field>
+
+            </td>
+
+          </tr>
+          <tr>
+
+
+            <td>
+              <label style="margin-left:30px;">お客様名（漢字）：名
+              </label><br>
+              <mat-form-field class="example-full-width" style="height:60px;width:550px;margin-left:30px;">
+                <input matInput type="text" class="form-control" id="kanjiname"formControlName="kanjiname" >
+              </mat-form-field>
+            </td>
+            <td>
+              <label style="margin-left:30px;">生年月日</label><br>
+              
+  
+                        <mat-form-field style="width:550px;height:60px;margin-left:30px;" class="example-full-width" class="form-group"> 
+                          <input matInput [matDatepicker]="dob" placeholder="Select a date"(dateChange)="updateDOB($event)"formControlName="dob"  >
+                          <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+                          <mat-datepicker #dob></mat-datepicker>
+                        </mat-form-field>
+            </td>
+          
+
+
+          </tr>
+
+          <tr>
+            <td>
+              <label style="margin-left:30px;">性別
+              </label><br>
+              <mat-radio-group aria-label="Select an option" class="form-control" id="gender"
+                style="width:550px;margin-left:5px;height:60px;margin-bottom:200px;margin-left:30px;"
+              formControlName="gender"   >
+                <mat-radio-button value="M">男性</mat-radio-button>
+                <mat-radio-button value="F">女性</mat-radio-button>
+                <mat-radio-button value="O">その他</mat-radio-button>
+              </mat-radio-group>
+            </td>
+            
+            <td>
+            
+              <label style="margin-left:20px;">アドレス</label>
+              <label style="margin-left:82px;">都道府県</label>
+              <label style="margin-left:167px;">市区町村</label><br>
+              <mat-form-field class="example-full-width" style="width:130px;height:60px;margin-left:22px;">
+                <input type="text" class="form-control"placeholder="郵便番号" id="add1" matInput formControlName="add1"  >
+              </mat-form-field>
+          
+          
+            
+              <mat-form-field class="example-full-width" style="width:220px;height:60px;margin-left:5px;">
+                <input type="text" class="form-control" placeholder="都道府県" id="addres2" matInput formControlName="add2"  >
+              </mat-form-field>
+              
+              <mat-form-field class="example-full-width" style="width:227px;height:60px;margin-left:5px;">
+                <input type="text" class="form-control"  placeholder="市区町村" id="address3" matInput formControlName="add3"   >
+              </mat-form-field>
+              <label style="margin-left:20px;">番地</label>
+             <label style="margin-left:250px;">番地</label>
+             <br>
+              <mat-form-field class="example-full-width" style="width:272px;height:60px;margin-left:20px;">
+                <input type="text" class="form-control"  placeholder="番地" id="add4" matInput formControlName="add4" >
+              </mat-form-field>
+              
+              <mat-form-field class="example-full-width" style="width:300px;height:60px;margin-left:5px;">
+                <input type="text" class="form-control"  placeholder="建物等 " id="add5"formControlName="add5" matInput  >
+              </mat-form-field>
+            </td>
+          </tr>
+
+
+
+
+          <tr>
+
+            <!-- <td>
+              <label style="margin-left:30px;">アドレス3</label><br>
+              <mat-form-field class="example-full-width"
+                style="width:550px;margin-left:5px;height:60px;margin-left:20px;">
+                <input matInput type="text" class="form-control" id="add3" formControlName="add3">
+              </mat-form-field>
+            </td> -->
+
+
+          </tr>
+
+          <tr>
+            <br>
+          </tr>
+
+
+        </tbody>
+      </table>
+      <!-- </mat-card-content> -->
+    </form>
+
+  </div>
+  <mat-card-footer>
+
+    <div class="example-button-row">
+      <button mat-button style="margin-left:42%;margin-top:25px;background-color:#001E50;color:#FFFFFF;"
+        (click)="confirmDialog()">ビューPDF
+      </button>
+     </div>
+
+  </mat-card-footer>
+</mat-card>

@@ -280,9 +280,9 @@
   </ng-template>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="doAction()">{{ action }}</button>
-  <button mat-button (click)="refreshPage()" (onKeyUp)="closeDialog()">Save</button>
-  <button mat-button (click)="updatesSubmitted(action)">Submit updates</button>
+  
+ 
+  <button mat-button (click)="updatesSubmitted(action)">Submit {{action}}</button>
   <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Close
   </button>
   

@@ -10,6 +10,12 @@ import { environment } from 'src/environments/environment.development';
 export class AuthService {
   httpClient: any;
   loginUser: any;
+  pdfImg: any;
+  pdfFile:any
+  printpdfData:any;
+  alertPdfData: any;
+  searchResponse: any;
+  printPDF: any
 
   constructor(private http: HttpClient) { }
 
@@ -94,7 +100,7 @@ export class AuthService {
   registerUser(user: Array<String>) {
 
     return this.http.post(
-      environment.apiBase + 'CustInfo',
+      environment.apiBase + 'CustInfo/',
       {
         kanjiname: user[0],
         kanjilastname: user[1],
@@ -146,5 +152,74 @@ search=search
     return this.http.get<any>(url, { params: queryParams });
 
   }
+   
+  getCustInfo(id:any): Observable<any> {
+    return this.http.get(
+      environment.apiBase + 'CustInfo/',
+    );
+  }
+//   getSearchByparam(criteria:any,search,custinfo?:any)
+//   {
+
+//     let queryParams = new HttpParams();
+//     queryParams = queryParams.append(criteria,search);
+//     if(custinfo.kanjiname){
+//     queryParams = queryParams.append("kanjiname",custinfo.kanjiname);
+//     }
+//     if(custinfo.kanjilastname){
+//     queryParams = queryParams.append("kanjilastname",custinfo.kanjilastname);
+//     }
+//     if(custinfo.kananame){
+//     queryParams = queryParams.append("kananame",custinfo.kananame);
+//     }
+//     if(custinfo.dob){
+//     queryParams = queryParams.append("dob",custinfo.dob);
+//     }
+//     if(custinfo.gender){
+//     queryParams = queryParams.append("gender",custinfo.gender);
+//     }
+//     if(custinfo.email){
+//     queryParams = queryParams.append("email",custinfo.email);
+//     }
+//     if(custinfo.cell1){
+//     queryParams = queryParams.append("cell1",custinfo.cell1);
+//     }
+//     if(custinfo.add1){
+//     queryParams = queryParams.append("add1",custinfo.add1);
+//     }
+//     if(custinfo.add2){
+//     queryParams = queryParams.append("add2",custinfo.add2);
+//     }
+//      if(custinfo.add3){
+//     queryParams = queryParams.append("add3",custinfo.add3);
+//      }
+//      if(custinfo.phone1){
+//     queryParams = queryParams.append("phone1",custinfo.phone1);
+//      }
+//      if(custinfo.phone2){
+//     queryParams = queryParams.append("phone2",custinfo.phone2);
+//      }
+//      if(custinfo.phone3){
+
+//     queryParams = queryParams.append("phone3",custinfo.phone3);
+//      }
+    
+
+
+//  let url=this. + 'search/';
+//     return this.http.get<any>(url,{params:queryParams});
+
+//   }
 
 }
+export const MY_DATE_FORMATS = {
+  parse: {
+    dateInput: 'YYYY-MM-DD',
+  },
+  display: {
+    dateInput: 'YYYY-MM-DD',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY'
+  },
+};
