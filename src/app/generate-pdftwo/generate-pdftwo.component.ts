@@ -1,25 +1,20 @@
-import { Component, ElementRef, SecurityContext, ViewChild } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
-import { PDFDocumentProxy, PdfViewerComponent } from 'ng2-pdf-viewer';
-import { AuthService } from '../auth.service';
 
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { ConfirmDialogComponent, ConfirmDialogModel } from '../confirm-dialog/confirm-dialog.component';
-import { AlertDialogComponent, AlertDialogModel } from '../alert-dialog/alert-dialog.component';
+  import { Component, ElementRef, SecurityContext, ViewChild } from '@angular/core';
+  import { DomSanitizer } from '@angular/platform-browser';
+  import { PDFDocumentProxy, PdfViewerComponent } from 'ng2-pdf-viewer';
+  import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
-import { Router } from '@angular/router';
+  import { Router } from '@angular/router';
+  import { AlertDialogModel, AlertDialogComponent } from 'src/app/alert-dialog/alert-dialog.component';
+  import { AuthService } from 'src/app/auth.service';
 
-// var spawn = require('child_process').spawn
-//  var child = spawn('pwd')
-
-@Component({
-  selector: 'app-generate-pdf-eng',
-  templateUrl: './generate-pdf-eng.component.html',
-  styleUrls: ['./generate-pdf-eng.component.css']
-})
-export class GeneratePdfEngComponent {
- 
-
+  @Component({
+    selector: 'app-generate-pdftwo',
+    templateUrl: './generate-pdftwo.component.html',
+    styleUrls: ['./generate-pdftwo.component.css']
+  })
+  export class GeneratePDFTwoComponent {
+  
     pdfSrc: any;
     pdf!: PDFDocumentProxy;
     @ViewChild(PdfViewerComponent, { static: false })
@@ -27,15 +22,16 @@ export class GeneratePdfEngComponent {
     private pdfComponent!: PdfViewerComponent;result: any;
     isdownloadClick: boolean=false;
     ispasswordMatched: any=false;
-  tabView: boolean;
+    tabView: boolean;
   ;
     constructor(private  loginAuth: AuthService,protected sanitizer: DomSanitizer,public dialog: MatDialog,private router:Router) { 
       this.pdfSrc=this.loginAuth.pdfImg
+      console.log(this.pdfSrc)
     }
     ngOnInit()
     {
       console.log(this.router.url )
-      if(this.router.url==='/printPdfeng/tab'){
+      if(this.router.url==='/printPdf/tab'){
         this.tabView=true
       }
       else{
@@ -65,37 +61,25 @@ export class GeneratePdfEngComponent {
     let title="customer_info"
   
     
-      this.loginAuth.pdfFile.save(fileName);
-      if(!this.tabView)
-      {
-      window.open(this.loginAuth.pdfFile.output('bloburl'), '_blank',"top=100,left=200,width=1000,height=500");
-      }
-      if(this.tabView)
-      {
-      window.open(this.loginAuth.pdfFile.output('bloburl'), '_blank')
-      
-      }
-     
-       //window.open(URL.createObjectURL( this.loginAuth.pdfFile.output("blob")))
-       
-  // var options = {
-  //   keyLength: 128,
-  //   password: 'YOUR_PASSWORD_TO_ENCRYPT'
-  // }
-  
-  // qpdf.encrypt(fileName, options);
-  
-       
-  
-      
-      // let path= this.loginAuth.pdfFile.path()
-     //  console.log(path)
+    this.loginAuth.pdfFile.save(fileName);
+    if(!this.tabView)
+    {
+    window.open(this.loginAuth.pdfFile.output('bloburl'), '_blank',"top=100,left=200,width=1000,height=500");
+    }
+    if(this.tabView)
+    {
+    window.open(this.loginAuth.pdfFile.output('bloburl'), '_blank')
+    
+    }
+    //window.open(this.loginAuth.pdfFile.output('bloburl')', '_blank', 'toolbar=0,location=0,menubar=0');
+     // window.open(this.loginAuth.pdfFile.output('bloburl' , "", "width=200,height=100"));
   
        
      
   }
   
   printPdf() {
+    
     this.loginAuth.printPDF.autoPrint();
     if(!this.tabView)
     {
@@ -106,6 +90,9 @@ export class GeneratePdfEngComponent {
     window.open(this.loginAuth.printPDF.output('bloburl'), '_blank')
     
     }
+   // window.open(this.loginAuth.printPDF.output('bloburl'), '_blank');
+  // window.open(this.loginAuth.printPDF.output('bloburl'), '_blank',"top=100,left=200,width=1000,height=500");
+  
      
    }
   callBackFn(pdf: PDFDocumentProxy) {
@@ -158,3 +145,4 @@ export class GeneratePdfEngComponent {
   }
   
   }
+

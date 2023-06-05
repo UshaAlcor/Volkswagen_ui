@@ -135,10 +135,7 @@ updatesSubmitted() {
 deleteRecord()
 {
   this.loginAuth.deleteUser(this.id).subscribe((res: any) => {
-   
-     this.isUserValid = false;
-     alert(res.msg);
-    
+
      this.isUserValid =true;
     alert(res.msg)
      this.ngOnInit();
