@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PrintPdfEngComponent } from './print-pdf-eng.component';
+import { PrintDetailTwoComponent } from './print-detail-two.component';
 
-describe('PrintPdfEngComponent', () => {
-  let component: PrintPdfEngComponent;
-  let fixture: ComponentFixture<PrintPdfEngComponent>;
+describe('PrintDetailTwoComponent', () => {
+  let component: PrintDetailTwoComponent;
+  let fixture: ComponentFixture<PrintDetailTwoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PrintPdfEngComponent ]
+      declarations: [ PrintDetailTwoComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PrintPdfEngComponent);
+    fixture = TestBed.createComponent(PrintDetailTwoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -231,10 +231,6 @@ this.information();
   deleteRecord(id:any)
 {
   this.loginAuth.deleteUser(id).subscribe((res: any) => {
-   
-     this.isUserValid = false;
-     alert(res.msg);
-    
      this.isUserValid =true;
     alert(res.msg)
      this.search();

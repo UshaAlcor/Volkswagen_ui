@@ -1,3 +1,4 @@
+
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup,FormControl, Validators, FormBuilder } from '@angular/forms';
 import { AuthService } from '../auth.service';
@@ -6,21 +7,18 @@ import  jsPDF from 'jspdf';
 import { Router } from '@angular/router';
 import { PDFDocumentProxy, PdfViewerComponent } from 'ng2-pdf-viewer';
 //import  jsPDF from 'jspdf';
-
-
-
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent, ConfirmDialogModel } from '../confirm-dialog/confirm-dialog.component';
 import jspdf from 'jspdf';
-
-import { AlertDialogComponent, AlertDialogModel } from '../alert-dialog/alert-dialog.component';
+import { GeneratePDFTwoComponent } from '../generate-pdftwo/generate-pdftwo.component';
 
 @Component({
-  selector: 'app-print-pdf',
-  templateUrl: './print-pdf.component.html',
-  styleUrls: ['./print-pdf.component.css']
+  selector: 'app-print-detail-two',
+  templateUrl: './print-detail-two.component.html',
+  styleUrls: ['./print-detail-two.component.css']
 })
-export class PrintPdfComponent {
+export class PrintDetailTwoComponent {
+
   pdfSrc: any;
   pdf!: PDFDocumentProxy;
   @ViewChild(PdfViewerComponent, { static: false })
@@ -243,7 +241,7 @@ Screen()
        encryption: {
              userPassword:fileName,
             ownerPassword:"test",
-            //  userPermissions:['print']
+              userPermissions:['print']
          } 
         })
         pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
@@ -314,15 +312,31 @@ printPdf() {
    
  }
 
-openDialog(){
+// openDialog(){
 
-if(this.router.url=='/printDetail'){
- this.router.navigate(['/printPdf'])
+// if(this.router.url=='/printDetailTwo'){
+//  //this.router.navigate(['/printPdf'])
+//  window.open(this.loginAuth.printPDF.output('bloburl'), '_blank',"top=100,left=200,width=1000,height=500");
+
+// }
+// if(this.router.url=='/printDetail/tab'){
+//   this.router.navigate(['/printPdf/tab'])
+// }
+
+// }
+openDialog(): void {
+  let dialogRef = this.dialog.open(GeneratePDFTwoComponent, {
+    maxHeight: '90vh'
+    // data: { name: this.name, animal: this.animal }
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
+    // this.animal = result;
+  });
 }
-if(this.router.url=='/printDetail/tab'){
-  this.router.navigate(['/printPdf/tab'])
-}
+
 
 }
 
-}
+

@@ -64,13 +64,15 @@ import { ListcustomerComponent } from './listcustomer/listcustomer.component';
 import { DetailedCustInfoComponent } from './detailed-cust-info/detailed-cust-info.component';
 import { TestComponent } from './test/test.component';
 import { CustomerInformationComponent } from './customer-information/customer-information.component';
-import { PrintPdfComponent } from './print-pdf/print-pdf.component';
-import { GeneratePdfComponent } from './generate-pdf/generate-pdf.component';
-import { GeneratePdfEngComponent } from './generate-pdf-eng/generate-pdf-eng.component';
-import { PrintPdfEngComponent } from './print-pdf-eng/print-pdf-eng.component';
+
 import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+
+import { GeneratePDFTwoComponent } from './generate-pdftwo/generate-pdftwo.component';
+
+import { PrintDetailTwoComponent } from './print-detail-two/print-detail-two.component';
+
 
 
 
@@ -89,12 +91,15 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     DetailedCustInfoComponent,
     CustomerInformationComponent,
     SearchFilterPipe,
-    PrintPdfEngComponent,
-    GeneratePdfEngComponent,
-    PrintPdfComponent,
-    GeneratePdfComponent,
+   
     AlertDialogComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+
+    PrintDetailTwoComponent,
+   
+    GeneratePDFTwoComponent,
+  
+     
   ],
   imports: [
     BrowserModule,
@@ -145,6 +150,8 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     ],
     entryComponents: [],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'ja-JP'},
+  
+ 
   {
     provide:  DateAdapter,
     useClass: MomentDateAdapter,
