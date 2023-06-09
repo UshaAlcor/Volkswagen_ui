@@ -16,6 +16,7 @@ export class AuthService {
   alertPdfData: any;
   searchResponse: any;
   printPDF: any
+  selectedCar: any;
 
   constructor(private http: HttpClient) { }
 
@@ -44,10 +45,48 @@ export class AuthService {
   }
 
 
-  usedCars(user: Array<String>) {
-    return this.http.get(
-      environment.apiBase + 'usedcar',
-    );
+  usedCars(usedCar: any) {
+    let queryParams = new HttpParams();
+    if(usedCar){
+      if(usedCar.dealercode!=undefined){
+    queryParams = queryParams.append('dealercode', usedCar.dealercode);
+      }
+      if(usedCar.sortno!=undefined){
+    queryParams = queryParams.append('sortno', usedCar.sortno);
+      }
+      if(usedCar.carname!=undefined){
+    queryParams = queryParams.append('carname', usedCar.carname);
+      }
+      if(usedCar.gradename!=undefined){
+    queryParams = queryParams.append('gradename', usedCar.gradename);
+      }
+      if(usedCar.modelyear!=undefined){
+    queryParams = queryParams.append('modelyear', usedCar.modelyear);
+      }
+      if(usedCar.colorcode!=undefined){
+    queryParams = queryParams.append('colorcode', usedCar.colorcode);
+      }
+      if(usedCar.Mileage!=undefined){
+        queryParams = queryParams.append('Mileage', usedCar.Mileage);
+          }
+          if(usedCar.expiredateofinsp !=undefined){
+            queryParams = queryParams.append('expiredateofinsp ', usedCar.expiredateofinsp );
+              }
+              if(usedCar.bodyno!=undefined){
+                queryParams = queryParams.append('bodyno', usedCar.bodyno);
+                  }
+                  if(usedCar.salesprice!=undefined){
+                    queryParams = queryParams.append('salesprice', usedCar.salesprice);
+                      }
+                      if(usedCar.typecode!=undefined){
+                        queryParams = queryParams.append('typecode', usedCar.typecode);
+                          }
+      
+    }
+    //let url = environment.apiBase + 'displaycar/';
+    let url = environment.apiBase + 'search/';
+    return this.http.get<any>(url, { params: queryParams });
+   
   }
 
   preCars(user: Array<String>) {
@@ -56,29 +95,110 @@ export class AuthService {
     );
   }
 
-  vehicleSelection(user: Array<String>) {
+  vehicleSelection(vehicle:any) {
+    
+    let queryParams = new HttpParams();
+    if(vehicle){
+      if(vehicle.colorname!=undefined){
+    queryParams = queryParams.append('colorname', vehicle.colorname);
+      }
+      if(vehicle.colorcode!=undefined){
+    queryParams = queryParams.append('colorcode', vehicle.colorcode);
+      }
+      if(vehicle.interiorname!=undefined){
+    queryParams = queryParams.append('interiorname', vehicle.interiorname);
+      }
+      if(vehicle.interiorcode!=undefined){
+    queryParams = queryParams.append('interiorcode', vehicle.interiorcode);
+      }
+      if(vehicle.distributorinventory!=undefined){
+    queryParams = queryParams.append('distributorinventory', vehicle.distributorinventory);
+      }
+      if(vehicle.vehiclepriceintax!=undefined){
+    queryParams = queryParams.append('vehiclepriceintax', vehicle.vehiclepriceintax);
+      }
+      if(vehicle.storeinventory!=undefined){
+        queryParams = queryParams.append('storeinventory', vehicle.storeinventory);
+          }
+      
+    }
+    //let url = environment.apiBase + 'displaycar/';
+    let url = environment.apiBase + 'carprice/';
+    return this.http.get<any>(url, { params: queryParams });
+
+  }
+  
+
+  
+  selectedVehicle() {
     return this.http.get(
-      environment.apiBase + 'displaycar',
+      environment.apiBase + 'selectcar/',
     );
   }
 
-  selectedVehicle(user: Array<String>) {
-    return this.http.get(
-      environment.apiBase + 'selectcar',
-    );
+  conditionalVehicle(user:any) {
+ 
+ 
+    let queryParams = new HttpParams();
+    if(user){
+      if(user.modelyear!=undefined){
+    queryParams = queryParams.append('modelyear', user.modelyear);
+      }
+      if(user.modelcategory!=undefined){
+    queryParams = queryParams.append('modelcategory', user.modelcategory);
+      }
+      if(user.gradename!=undefined){
+    queryParams = queryParams.append('gradename', user.gradename);
+      }
+      if(user.modelcode!=undefined){
+    queryParams = queryParams.append('modelcode', user.modelcode);
+      }
+      if(user.typecode!=undefined){
+    queryParams = queryParams.append('typecode', user.typecode);
+      }
+      if(user.prcodes!=undefined){
+    queryParams = queryParams.append('prcodes', user.prcodes);
+      }
+    }
+    let url = environment.apiBase + 'carprice/';
+    return this.http.get<any>(url, { params: queryParams });
+
   }
-
-  conditionalVehicle(user: Array<String>) {
-    return this.http.get(
-      environment.apiBase + 'conditional',
-    );
-  }
+  
 
 
-  newCars(user: Array<String>) {
-    return this.http.get(
-      environment.apiBase + 'newcar',
-    );
+  newCars(newCar:any) {
+    let queryParams = new HttpParams();
+    if(newCar){
+   
+      if(newCar.modelyear!=undefined){
+    queryParams = queryParams.append('modelyear', newCar.modelyear);
+      }
+      if(newCar.modelcategory!=undefined&&newCar.modelcategory!=""){
+    queryParams = queryParams.append('modelcategory', newCar.modelcategory);
+      }
+      if(newCar.grade!=undefined&&newCar.grade!=""){
+    queryParams = queryParams.append('grade', newCar.grade);
+      }
+      if(newCar.modelcode!=undefined&&newCar.modelcode!=""){
+    queryParams = queryParams.append('modelcode', newCar.modelcode);
+      }
+      if(newCar.commissionno!=undefined){
+    queryParams = queryParams.append('commissionno', newCar.commissionno);
+      }
+      if(newCar.VINnumber!=undefined){
+    queryParams = queryParams.append('VINnumber', newCar.VINnumber);
+      }
+      if(newCar.distributorinventory!=undefined&&newCar.distributorinventory!=""){
+        queryParams = queryParams.append('distributorinventory', newCar.distributorinventory);
+          }
+          if(newCar.stockinventory!=undefined&&newCar.stockinventory!=""){
+            queryParams = queryParams.append('stockinventory', newCar.stockinventory);
+              }
+      
+    }
+    let url = environment.apiBase + 'newcarfilter/';
+    return this.http.get<any>(url, { params: queryParams });
   }
 
   infoUser(user: Array<String>) {
@@ -125,7 +245,7 @@ export class AuthService {
   }
   id: HttpParams | { [param: number]: string | number | boolean | readonly (string | number | boolean)[]; } | undefined;
 
-  updateUser(id: number, user: any) {
+  updateUser(id: number, user?: any) {
     return this.http.post(
       environment.apiBase + 'Update/' + id, user,
       {
@@ -152,6 +272,32 @@ search=search
     return this.http.get<any>(url, { params: queryParams });
 
   }
+  getCarPriceSearchByparam(criteria: any,search?:any) {
+    
+    if(search){
+    search=search
+    }else{
+      search="search"
+    }
+        let queryParams = new HttpParams();
+        queryParams = queryParams.append(search, criteria);
+        let url = environment.apiBase + 'carprice/';
+        return this.http.get<any>(url, { params: queryParams });
+    
+      }
+      getNewCarSearchByparam(criteria: any,search?:any) {
+    
+        if(search){
+        search=search
+        }else{
+          search="search"
+        }
+            let queryParams = new HttpParams();
+            queryParams = queryParams.append(search, criteria);
+            let url = environment.apiBase + 'newcarfilter/';
+            return this.http.get<any>(url, { params: queryParams });
+        
+          }
    
   getCustInfo(id:any): Observable<any> {
     return this.http.get(
@@ -210,6 +356,16 @@ search=search
 //     return this.http.get<any>(url,{params:queryParams});
 
 //   }
+saveSelectedCar(selectedCars: any) {
+
+  return this.http.post(
+    environment.apiBase + 'selectcar/',JSON.stringify(selectedCars),
+  
+    {
+      'headers': this.headers,  responseType: 'json'
+    },
+  );
+}
 
 }
 export const MY_DATE_FORMATS = {
@@ -223,3 +379,6 @@ export const MY_DATE_FORMATS = {
     monthYearA11yLabel: 'MMMM YYYY'
   },
 };
+
+//..selectcar
+

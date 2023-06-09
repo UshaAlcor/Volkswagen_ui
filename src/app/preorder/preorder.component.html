@@ -1,0 +1,184 @@
+<mat-card style="background:#F5F5F5;height:1500px;width:1420px;margin-left:10px;overflow-x: hidden; ">
+    <mat-card-header style="margin-bottom:20px; ">
+        <mat-card-title layout="row" layout-align="center center" style="margin-left:20px;text-align: left;MARGIN-TOP:50PX;
+        font: normal normal bold 22px Lato;
+        letter-spacing: 0px;
+        color: #7C7C7C;
+        opacity: 1;">List of Pre-Order Vehicle || 予約車両一覧 || Yoyaku sharyō ichiran</mat-card-title>
+        <div class="example-button-row">
+            <button mat-button style="margin-left:370px;margin-top:40px;background-color:#001E50;color:#FFFFFF;"
+                (click)="information()">View Records || 記録を見る || Kiroku o miru </button>
+            <!-- <a mat-button href="https://www.google.com/" target="_blank">Link</a> -->
+        </div>
+
+    </mat-card-header>
+
+    <br>
+
+    <!-- <table>
+        <tr>
+            <td>
+                <mat-label> Search By Model Code </mat-label>
+            </td>
+            <td>
+                <mat-label> Search By Model Name </mat-label>
+            </td>
+            <td>
+                <mat-label> Search By Model Year</mat-label>
+            </td>
+            <td>
+                <mat-label> Search By Vehicle Price (Inc. Tax)</mat-label>
+            </td>
+            
+
+
+        </tr>
+
+        <tr>
+            <td>
+                <input matInput (keyup)="applyFilter($event)" placeholder="モデルコード" #input
+                    Style="background-color:white;height:30px;width:320px;">
+
+            </td>
+            <td>
+                <input matInput (keyup)="applyFilter($event)" placeholder="モデル名" #input
+                    Style="background-color:white;height:30px;width:320px;">
+
+            </td>
+            <td>
+                <input matInput (keyup)="applyFilter($event)" placeholder="モデルイヤー" #input
+                    Style="background-color:white;height:30px;width:320px;">
+
+            </td>
+            <td>
+                <input matInput (keyup)="applyFilter($event)" placeholder="車両本体価格（消費税込み）" #input
+                    Style="background-color:white;height:30px;width:320px;">
+
+            </td>
+            
+        </tr>
+    </table> -->
+
+    <hr>
+
+    <!-- <mat-form-field>
+        <mat-label> Search record || 検索記録 || Kensaku kiroku ||</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ヤマモト" #input
+            Style="background-color:white;height:50px;">
+    </mat-form-field> -->
+    <form class="example-form" style="background-color:#FFFFFF;width:1400px;height:60px;margin-left:10px;">
+        <table>
+            <tr>
+                <td>
+                    <mat-label> Sequence No. </mat-label>
+                    <input matInput (keyup)="applyFilter($event)" placeholder="シーケンスNo." #input
+                        Style="background-color:white;height:20px;width:200px;">
+                </td>
+
+                <td>
+                    <mat-label> Model Name </mat-label>
+                    <input matInput (keyup)="applyFilter($event)" placeholder="モデル名" #input
+                        Style="background-color:white;height:20px;width:200px;">
+                </td>
+
+                <td>
+                    <mat-label> Model Code </mat-label>
+                    <input matInput (keyup)="applyFilter($event)" placeholder="モデルコード" #input
+                        Style="background-color:white;height:20px;width:200px;">
+                </td>
+
+                <td>
+                    <mat-label> Model Year </mat-label>
+                    <input matInput (keyup)="applyFilter($event)" placeholder="モデル年" #input
+                        Style="background-color:white;height:20px;width:200px;">
+                </td>
+
+                <td>
+                    <mat-label>Brand Code</mat-label>
+                    <input matInput (keyup)="applyFilter($event)" placeholder="ブランドコード" #input
+                        Style="background-color:white;height:20px;width:200px;">
+                </td>
+
+                <td>
+                    <mat-label>Vehicle Price</mat-label>
+                    <input matInput (keyup)="applyFilter($event)" placeholder="車両価格" #input
+                        Style="background-color:white;height:20px;width:200px;">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <hr>
+    <form class="example-form"
+        style="background-color:#FFFFFF;width:1400px;height:700px;margin-left:10px;margin-right:910px;">
+        <!-- <mat-card-content>  -->
+        <div class="example-header"></div>
+
+        <mat-table [dataSource]="dataSource" matSort>
+
+            <!-- ID Column -->
+            <ng-container matColumnDef="field_sequenceno">
+                <mat-header-cell (click)="sortKana()" *matHeaderCellDef
+                    style="background-color:#001E50;color:#FFFFFF;">Sequence No. <br> シーケンスNo. </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.field_sequenceno}} </mat-cell>
+            </ng-container>
+
+            <!-- Category -->
+            <ng-container matColumnDef="model">
+                <mat-header-cell (click)="sortKana()" *matHeaderCellDef mat-sort-header
+                    style="background-color:#001E50;color:#FFFFFF;">
+                    Model Name <br> モデル名
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.model }} </mat-cell>
+            </ng-container>
+
+            <!-- Grade -->
+            <ng-container matColumnDef="modelcode">
+                <mat-header-cell (click)="sortKana()" *matHeaderCellDef mat-sort-header
+                    style="background-color:#001E50;color:#FFFFFF;">
+                    Model Code <br> モデルコード
+                    <!-- <span *ngIf="sortTable === 'asc'">&#x25B2;</span>
+                              <span *ngIf="sortTable === 'desc'">&#x25BC;</span> -->
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.modelcode }} </mat-cell>
+
+            </ng-container>
+
+            <!-- Code -->
+            <ng-container matColumnDef="modelyear">
+                <mat-header-cell (click)="sortKana()" *matHeaderCellDef mat-sort-header
+                    style="background-color:#001E50;color:#FFFFFF;">
+                    Model Year <br> モデル年
+                    <!-- <span *ngIf="sortTable === 'asc'">&#x25B2;</span>
+                              <span *ngIf="sortTable === 'desc'">&#x25BC;</span> -->
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.modelyear }} </mat-cell>
+            </ng-container>
+
+            <!-- ID Column -->
+            <ng-container matColumnDef="brandcode">
+                <mat-header-cell (click)="sortKana()" *matHeaderCellDef style="background-color:#001E50;color:#FFFFFF;">
+                    Brand Code <br> ブランドコード </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.brandcode }} </mat-cell>
+            </ng-container>
+
+            <!--PR-->
+            <ng-container matColumnDef="vehicleprice">
+                <mat-header-cell (click)="sortKana()" *matHeaderCellDef mat-sort-header
+                    style="background-color:#001E50;color:#FFFFFF;">Vehicle Price <br> 車両価格
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.vehiclepriceintax}} </mat-cell>
+            </ng-container>
+           
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+        </mat-table>
+    </form>
+</mat-card>
+
+<div class="example-button-row">
+    <button mat-raised-button color="primary" (click)="terminatealert()"
+        style="margin-left:1200px;margin-top:40px;background-color:red;">Terminate</button>
+    <button mat-button style="margin-left:20px;margin-top:40px;background-color:#001E50;color:white;" (click)="refreshPage()">Reset</button>
+    
+    <!-- <a mat-button href="https://www.google.com/" target="_blank">Link</a> -->
+</div>
