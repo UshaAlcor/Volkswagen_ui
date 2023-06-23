@@ -83,8 +83,8 @@ custInfoResponse: any;
   });
  getCustData ()
   {
-    let id="143750541";
-    this.loginAuth.getCustInfo(id).subscribe(data=>{
+
+    this.loginAuth.getCustInfo().subscribe(data=>{
 
 console.log(data)
 

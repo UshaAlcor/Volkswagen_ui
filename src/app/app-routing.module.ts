@@ -18,40 +18,51 @@ import { UsedcarsComponent } from './usedcars/usedcars.component';
 import { PreorderComponent } from './preorder/preorder.component';
 
 const routes: Routes = [
-
+//on load of the  SPA Application
   {
     path: '',
     component: LandingPageComponent
   },
+  //In order to Search customer info
   {
     path:'search',
     component: SearchComponent
   },
+  //Display popup dialog
   {
     path:'dialog',
     component: DialogComponent
   },
+  //Listing the Customer info
   {
     path:'list',
     component: ListcustomerComponent
   },
+  //Showing customer info
   {
     path:'info',
     component: CustomerInformationComponent
   },
+  // Details of customer
   {
     path:'detail',
     component: DetailedCustInfoComponent
   },
+  //all curd operation in one screen
   {
     path:'test',
     component: TestComponent
   },
-  
+  //Cust info with id
 {
   path:'info/:id',
   component: DetailedCustInfoComponent
 },
+{
+  path:'detail',
+  component: DetailedCustInfoComponent
+},
+//Update cust info
   {
     path:'update',
     component: UpdateinfoComponent
@@ -88,7 +99,7 @@ const routes: Routes = [
   //this url is for english version and after clicking on download or print it will open in a new window
  
 
-
+//Sprint 4 print pdf
  
   {
     path:'printDetailTwo',
@@ -96,10 +107,7 @@ const routes: Routes = [
   },
 
 
-  {
-    path:'detail',
-    component: DetailedCustInfoComponent
-  },
+
   
 ];
 
