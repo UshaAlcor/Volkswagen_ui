@@ -72,6 +72,12 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { GeneratePDFTwoComponent } from './generate-pdftwo/generate-pdftwo.component';
 
 import { PrintDetailTwoComponent } from './print-detail-two/print-detail-two.component';
+import { VehicleselectionComponent } from './vehicleselection/vehicleselection.component';
+import { ConditionalavailablevehiclesComponent } from './conditionalavailablevehicles/conditionalavailablevehicles.component';
+import { VehiclenegotiationComponent } from './vehiclenegotiation/vehiclenegotiation.component';
+import { VehicleComponent } from './vehicle/vehicle.component';
+import { UsedcarsComponent } from './usedcars/usedcars.component';
+import { PreorderComponent } from './preorder/preorder.component';
 
 
 
@@ -98,6 +104,12 @@ import { PrintDetailTwoComponent } from './print-detail-two/print-detail-two.com
     PrintDetailTwoComponent,
    
     GeneratePDFTwoComponent,
+         VehicleselectionComponent,
+         ConditionalavailablevehiclesComponent,
+         VehiclenegotiationComponent,
+         VehicleComponent,
+         UsedcarsComponent,
+         PreorderComponent,
   
      
   ],

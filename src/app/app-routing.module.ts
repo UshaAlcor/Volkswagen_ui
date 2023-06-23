@@ -10,6 +10,12 @@ import { CustomerInformationComponent } from './customer-information/customer-in
 import { DetailedCustInfoComponent } from './detailed-cust-info/detailed-cust-info.component';
 import { TestComponent } from './test/test.component';
 import { PrintDetailTwoComponent } from './print-detail-two/print-detail-two.component';
+import { VehicleselectionComponent } from './vehicleselection/vehicleselection.component';
+import { ConditionalavailablevehiclesComponent } from './conditionalavailablevehicles/conditionalavailablevehicles.component';
+import { VehiclenegotiationComponent } from './vehiclenegotiation/vehiclenegotiation.component';
+import { VehicleComponent } from './vehicle/vehicle.component';
+import { UsedcarsComponent } from './usedcars/usedcars.component';
+import { PreorderComponent } from './preorder/preorder.component';
 
 const routes: Routes = [
 
@@ -50,6 +56,34 @@ const routes: Routes = [
     path:'update',
     component: UpdateinfoComponent
   },
+  // sprint 2
+
+  {
+    path:'vehicleselection',
+    component: VehicleselectionComponent
+  },
+  {
+    path:'conditionalselection',
+    component: ConditionalavailablevehiclesComponent
+  },
+  {
+    path:'vehiclenegotiation',
+    component: VehiclenegotiationComponent
+  },
+  {
+    path:'vehiclenew',
+    component: VehicleComponent
+  },
+  {
+    path:'usedcar',
+    component: UsedcarsComponent
+
+  },
+  {
+    path:'preorder',
+    component: PreorderComponent
+  },
+
  
   //this url is for english version and after clicking on download or print it will open in a new window
  

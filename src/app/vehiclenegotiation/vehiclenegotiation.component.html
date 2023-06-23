@@ -1,0 +1,116 @@
+<mat-card style="background:#F5F5F5;height:1500px;width:1420px;margin-left:10px;overflow-x: hidden; ">
+    <mat-card-header style="margin-bottom:20px; ">
+        <mat-card-title layout="row" layout-align="center center" style="margin-left:20px;text-align: left;MARGIN-TOP:50PX;
+        font: normal normal bold 22px Lato;
+        letter-spacing: 0px;
+        color: #7C7C7C;
+        opacity: 1;">Selected Vehicle || 選択された車両 || Sentaku sa reta sharyō</mat-card-title>
+        <div class="example-button-row">
+            <button mat-button style="margin-left:450px;margin-top:40px;background-color:#001E50;color:#FFFFFF;"
+                (click)="information()">View Record || 記録を見る || Kiroku o miru </button>
+            <!-- <a mat-button href="https://www.google.com/" target="_blank">Link</a> -->
+        </div>
+
+    </mat-card-header>
+
+    <br>
+
+   
+
+    <hr>
+
+
+
+   
+
+    <hr>
+    <form class="example-form"
+        style="background-color:#FFFFFF;width:1400px;height:700px;margin-left:10px;margin-right:910px;">
+        <!-- <mat-card-content>  -->
+        <div class="example-header"></div>
+
+        <mat-table [dataSource]="dataSource" matSort>
+
+            <!-- ID Column -->
+            <ng-container matColumnDef="colorname">
+                <mat-header-cell (click)="sortKana()" *matHeaderCellDef
+                    style="background-color:#001E50;color:#FFFFFF;">Color Name <br> カラー </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.colorname}} </mat-cell>
+            </ng-container>
+
+            <!-- ID Column -->
+            <ng-container matColumnDef="colorcode">
+                <mat-header-cell (click)="sortKana()" *matHeaderCellDef
+                    style="background-color:#001E50;color:#FFFFFF;">Color Code <br> カラー</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.colorcode}} </mat-cell>
+            </ng-container>
+
+            <!-- Category -->
+            <ng-container matColumnDef="interiorname">
+                <mat-header-cell (click)="sortKana()" *matHeaderCellDef mat-sort-header
+                    style="background-color:#001E50;color:#FFFFFF;">
+                    Interior Name <br> インテリア
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.interiorname }} </mat-cell>
+            </ng-container>
+
+               <!-- Category -->
+               <ng-container matColumnDef="interiorcode">
+                <mat-header-cell (click)="sortKana()" *matHeaderCellDef mat-sort-header
+                    style="background-color:#001E50;color:#FFFFFF;">
+                    Interior Code <br> インテリア
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.interiorcode }} </mat-cell>
+            </ng-container>
+            <!-- Grade -->
+            <ng-container matColumnDef="bodyprice">
+                <mat-header-cell (click)="sortKana()" *matHeaderCellDef mat-sort-header
+                    style="background-color:#001E50;color:#FFFFFF;">
+                   Vehicle Body Price <br> 車両本体価格
+                    <!-- <span *ngIf="sortTable === 'asc'">&#x25B2;</span>
+                              <span *ngIf="sortTable === 'desc'">&#x25BC;</span> -->
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.vehiclepriceintax }} </mat-cell>
+
+            </ng-container>
+
+            <!-- Code -->
+            <ng-container matColumnDef="distributorstock">
+                <mat-header-cell (click)="sortKana()" *matHeaderCellDef mat-sort-header
+                    style="background-color:#001E50;color:#FFFFFF;">
+                   No. of Distributors in Stock <br> 販社在庫数
+                    <!-- <span *ngIf="sortTable === 'asc'">&#x25B2;</span>
+                              <span *ngIf="sortTable === 'desc'">&#x25BC;</span> -->
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.distributorinventory }} </mat-cell>
+            </ng-container>
+
+            <!-- ID Column -->
+            <ng-container matColumnDef="inventory">
+                <mat-header-cell (click)="sortKana()" *matHeaderCellDef style="background-color:#001E50;color:#FFFFFF;">
+                    Store Inventory Quantity <br> 店舗在庫数 </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{ row.storeinventory}} </mat-cell>
+            </ng-container>
+
+            <!-- PR
+            <ng-container matColumnDef="action">
+                <mat-header-cell (click)="sortKana()" *matHeaderCellDef mat-sort-header
+                    style="background-color:#001E50;color:#FFFFFF;">Action
+                </mat-header-cell>
+                <button mat-raised-button color="primary"
+                style="margin-left:20px;margin-top:40px;background-color:#001E50;">Select</button>
+            </ng-container> -->
+           
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+        </mat-table>
+    </form>
+</mat-card>
+
+<div class="example-button-row">
+    <button mat-raised-button color="primary" (click)="terminatealert()"
+        style="margin-left:1200px;margin-top:40px;background-color:red;">Terminate</button>
+    <button mat-button style="margin-left:20px;margin-top:40px;background-color:#001E50;color:white;" (click)="refreshPage()">Reset</button>
+    
+    <!-- <a mat-button href="https://www.google.com/" target="_blank">Link</a> -->
+</div>

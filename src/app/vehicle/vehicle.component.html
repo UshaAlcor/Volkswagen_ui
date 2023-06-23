@@ -1,0 +1,262 @@
+<mat-card style="background:#F5F5F5;height:1500px;width:1420px;margin-left:10px;overflow-x: hidden; ">
+    <mat-card-header style="margin-bottom:20px; ">
+        <mat-card-title layout="row" layout-align="center center" style="margin-left:20px;text-align: left;MARGIN-TOP:50PX;
+        font: normal normal bold 22px Lato;
+        letter-spacing: 0px;
+        color: #7C7C7C;
+        opacity: 1;">List of All New Cars || 新車一覧 || Shinsha ichiran</mat-card-title>
+        <div class="example-button-row">
+            <button mat-button style="margin-left:500px;margin-top:40px;background-color:#001E50;color:#FFFFFF;"
+                (click)="information()">View Records || 記録を見る || Kiroku o miru </button>
+            <!-- <a mat-button href="https://www.google.com/" target="_blank">Link</a> -->
+        </div>
+
+    </mat-card-header>
+
+    <br>
+    <table>
+    
+        <tr>
+            
+          
+            <td>
+                <mat-label> Search By Commission Number </mat-label>
+            </td>
+            <td>
+                <mat-label> Search By VIN Number</mat-label>
+            </td>
+            <td>
+                <mat-label> Search By Inventory Availability</mat-label>
+            </td>
+
+        </tr>
+
+
+
+        <tr>
+           
+            <td>
+                <input matInput (keyup)="applyFilter($event)" placeholder="コミッション番号" #input
+                    Style="background-color:white;height:30px;width:320px;" [(ngModel)]="model.commissionno"[ngModelOptions]="{standalone: true}">
+
+            </td>
+            <td>
+                <input matInput (keyup)="applyFilter($event)" placeholder="VIN番号" #input
+                    Style="background-color:white;height:30px;width:320px;"[(ngModel)]="model.VINnumber"[ngModelOptions]="{standalone: true}">
+
+            </td>
+            <td>
+                <!-- <input matInput (keyup)="applyFilter($event)" placeholder="在庫の有無" #input
+                    Style="background-color:white;height:30px;width:320px;"> -->
+                    <section class="example-section">
+                        <mat-checkbox class="example-margin"(change)="onChkChange($event)">In Stock</mat-checkbox>
+                        <mat-checkbox class="example-margin" [disabled]="true">Out Of Stock</mat-checkbox>
+                      </section>
+
+            </td>
+
+
+
+
+        </tr>
+    </table>
+
+    <hr>
+    <mat-form-field>
+        <mat-label> Search record || 検索記録 || Kensaku kiroku ||</mat-label>
+        <input matInput (keyup)="applyFilterSearch($event)" placeholder="Ex. ヤマモト" #input
+            Style="background-color:white;height:50px;">
+    </mat-form-field>
+
+                 <form class="example-form" style="background-color:#FFFFFF;width:1400px;height:60px;margin-left:10px;">
+                    <table>
+                        <tr>
+                        
+
+                            <td>
+                                <mat-label> Model Year </mat-label>
+                                <input matInput (keyup)="applyFilter($event)" [(ngModel)]="model.modelyear" placeholder="MY" #input
+                                    Style="background-color:white;height:20px;width:100px;"[ngModelOptions]="{standalone: true}">
+
+                            </td>
+
+                            <td>
+                                <mat-label>Model Category</mat-label>
+                                <input matInput (keyup)="applyFilter($event)" [(ngModel)]="model.modelcategory" placeholder="カテゴリ" #input
+                                    Style="background-color:white;height:20px;width:100px;"[ngModelOptions]="{standalone: true}">
+
+                            </td>
+                        
+                    
+                            <td>
+                                <mat-label> Model Grade </mat-label>
+                                <input matInput (keyup)="applyFilter($event)" [(ngModel)]="model.grade" placeholder="グレード" #input
+                                    Style="background-color:white;height:20px;width:100px;"[ngModelOptions]="{standalone: true}">
+
+                            </td>
+                        
+                    
+                            <td>
+                                <mat-label> Model Code </mat-label>
+                                <input matInput (keyup)="applyFilter($event)" [(ngModel)]="model.modelcode" placeholder="モデルコード" #input
+                                    Style="background-color:white;height:20px;width:100px;"[ngModelOptions]="{standalone: true}">
+
+                            </td>
+                            <td>
+                                <mat-label> Comission No.</mat-label>
+                                <input matInput (keyup)="applyFilter($event)" [(ngModel)]="model.commissionno" placeholder="コミッションNo." #input
+                                    Style="background-color:white;height:20px;width:100px;"[ngModelOptions]="{standalone: true}">
+
+                            </td>
+
+                            <td>
+                                <mat-label>VIN No.</mat-label>
+                                <input matInput (keyup)="applyFilter($event)" [(ngModel)]="model.VINnumber" placeholder="車台番号" #input
+                                    Style="background-color:white;height:20px;width:100px;"[ngModelOptions]="{standalone: true}">
+
+                            </td>
+                            <td>
+                                <mat-label>Distributor Inventory</mat-label>
+                                <input matInput (keyup)="applyFilter($event)" [(ngModel)]="model.distributorinventory" placeholder="販社在庫数" #input
+                                    Style="background-color:white;height:20px;width:100px;"[ngModelOptions]="{standalone: true}">
+
+                            </td>
+
+                            <td>
+                                <mat-label>Stock Inventory</mat-label>
+                                <input matInput (keyup)="applyFilter($event)" [(ngModel)]="model.stockinventory" placeholder="販社在庫数" #input
+                                    Style="background-color:white;height:20px;width:100px;"[ngModelOptions]="{standalone: true}">
+
+                            </td>
+                        
+
+                        </tr>
+                    </table>
+                 </form>
+            <hr>
+                <form class="example-form"
+                    style="background-color:#FFFFFF;width:1400px;height:700px;margin-left:10px;margin-right:910px;">
+                    <!-- <mat-card-content>  -->
+                    <div class="example-header"></div>
+
+                    <mat-table [dataSource]="dataSource" matSort>
+
+                             <!-- ID Column
+                             <ng-container matColumnDef="id">
+                                <mat-header-cell  (click)="sortKana()"*matHeaderCellDef style="background-color:#001E50;color:#FFFFFF;">ID</mat-header-cell>
+                                <mat-cell *matCellDef="let row"> {{ row.id }} </mat-cell>
+                            </ng-container>
+     -->
+                        <!--MY-->
+                        <ng-container matColumnDef="year">
+                            <mat-header-cell (click)="sortKana()" *matHeaderCellDef style="background-color:#001E50;color:#FFFFFF;" mat-sort-header>MY <br> モデル年
+                            </mat-header-cell>
+                        
+                             <input matInput (keyup)="applyFilter($event)" placeholder="年式 || Nenshiki" #input
+                                Style="background-color:white;height:30px;width:200px;">
+                            <mat-cell *matCellDef="let row"> {{ row.modelyear }} </mat-cell>
+                        </ng-container>
+
+                        <!-- Category -->
+                        <ng-container matColumnDef="category">
+                            <mat-header-cell (click)="sortKana()" *matHeaderCellDef mat-sort-header style="background-color:#001E50;color:#FFFFFF;">
+                                Category <br> カテゴリ
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row"> {{ row.modelcategory }} </mat-cell>
+                        </ng-container>
+
+                        <!-- Grade -->
+                        <ng-container matColumnDef="grade">
+                            <mat-header-cell (click)="sortKana()" *matHeaderCellDef mat-sort-header style="background-color:#001E50;color:#FFFFFF;">
+                               Grade <br>グレード
+                                <!-- <span *ngIf="sortTable === 'asc'">&#x25B2;</span>
+                              <span *ngIf="sortTable === 'desc'">&#x25BC;</span> -->
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row"> {{ row.grade }} </mat-cell>
+
+                        </ng-container>
+
+
+                        <!-- Code -->
+                        <ng-container matColumnDef="modelcode">
+                            <mat-header-cell (click)="sortKana()" *matHeaderCellDef mat-sort-header style="background-color:#001E50;color:#FFFFFF;">
+                             Code <br> モデルコード
+                                <!-- <span *ngIf="sortTable === 'asc'">&#x25B2;</span>
+                              <span *ngIf="sortTable === 'desc'">&#x25BC;</span> -->
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row"> {{ row.modelcode }} </mat-cell>
+                        </ng-container>
+
+                   
+                        <!-- ID Column
+                        <ng-container matColumnDef="modeltype">
+                            <mat-header-cell (click)="sortKana()" *matHeaderCellDef style="background-color:#001E50;color:#FFFFFF;"> Model Type </mat-header-cell>
+                            <mat-cell *matCellDef="let row"> {{ row.modeltype }} </mat-cell>
+                        </ng-container> -->
+
+                        <!-- PR
+                        <ng-container matColumnDef="pr">
+                            <mat-header-cell (click)="sortKana()" *matHeaderCellDef mat-sort-header style="background-color:#001E50;color:#FFFFFF;">PR Code
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row"> {{ row.prcodes}} </mat-cell>
+                        </ng-container> -->
+
+                        
+                        <!--PR-->
+                        <ng-container matColumnDef="commission">
+                            <mat-header-cell (click)="sortKana()" *matHeaderCellDef mat-sort-header style="background-color:#001E50;color:#FFFFFF;">Commission No. <br>コミッションNo.
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row"> {{ row.commissionno}} </mat-cell>
+                        </ng-container>
+
+                        
+                        <!--PR-->
+                        <ng-container matColumnDef="vinno">
+                            <mat-header-cell (click)="sortKana()" *matHeaderCellDef mat-sort-header  style="background-color:#001E50;color:#FFFFFF;">VIN No. <br> 車台番号
+
+	
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row"> {{ row.VINnumber}} </mat-cell>
+                        </ng-container>
+
+                        <!--Action-->
+                        <ng-container matColumnDef="distributorinventory">
+                            <mat-header-cell (click)="sortKana()" *matHeaderCellDef mat-sort-header style="background-color:#001E50;color:#FFFFFF;">Distributor Inventory <br> 販社在庫数
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row"> {{ row.distributorinventory }} </mat-cell>
+                        </ng-container>
+
+
+                        <!--Action-->
+                        <ng-container matColumnDef="stockinventory">
+                            <mat-header-cell (click)="sortKana()" *matHeaderCellDef mat-sort-header style="background-color:#001E50;color:#FFFFFF;">Stock Inventory <br> 販社在庫数
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let row"> {{ row.stockinventory }} </mat-cell>
+                        </ng-container>
+
+                        <!-- Action
+                        <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef>Action</th>
+                        <td mat-cell *matCellDef="let element" class="action-link">
+                        <a (click)="openDialog('Update', element)">Edit</a> |
+                        <a (click)="openDialog('Delete', element)">Delete</a>
+                        </td>
+                        </ng-container> -->
+
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+                    </mat-table>
+               </form>
+
+</mat-card>
+<mat-card-footer>
+          
+    <div class="example-button-row">
+        <button mat-raised-button color="primary" (click)="terminatealert()"
+            style="margin-left:1200px;margin-top:40px;background-color:red;">Terminate</button>
+        <button mat-button style="margin-left:20px;margin-top:40px;background-color:#001E50;color:white;" (click)="refreshPage()">Reset</button>
+        
+        <!-- <a mat-button href="https://www.google.com/" target="_blank">Link</a> -->
+    </div>
+  </mat-card-footer>
