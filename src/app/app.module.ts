@@ -4,9 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { HttpClientModule} from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 import {MatCardModule} from '@angular/material/card';
@@ -17,7 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
-import { MatRippleModule } from '@angular/material/core';
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
@@ -38,10 +37,10 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import {MatNativeDateModule} from '@angular/material/core';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService, MY_DATE_FORMATS } from './auth.service';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import {  MatDialogRef } from '@angular/material/dialog';
 
 
 import {MAT_DATE_LOCALE} from '@angular/material/core';
@@ -78,6 +77,12 @@ import { VehiclenegotiationComponent } from './vehiclenegotiation/vehiclenegotia
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { UsedcarsComponent } from './usedcars/usedcars.component';
 import { PreorderComponent } from './preorder/preorder.component';
+import { JwtInterceptor, ErrorInterceptor } from './_helpers';
+import { RouteReuseStrategy, RouterModule } from '@angular/router';
+import { ApplicationComponent } from './application/application.component';
+import { AlertComponent } from './_components';
+import { HomeComponent } from './home';
+import { CustomRouteReuseStrategy } from './routerReuseStratagy.component';
 
 
 
@@ -110,6 +115,9 @@ import { PreorderComponent } from './preorder/preorder.component';
          VehicleComponent,
          UsedcarsComponent,
          PreorderComponent,
+         ApplicationComponent,
+         HomeComponent,
+         AlertComponent,
   
      
   ],
@@ -158,11 +166,23 @@ import { PreorderComponent } from './preorder/preorder.component';
     MatDatepickerModule,        // <----- import(must)
     MatNativeDateModule,        // <----- import for date formating(optional)
     MatMomentDateModule,
-    PdfViewerModule
+    PdfViewerModule,
+    MatIconModule,
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    RouterModule,
+    MatDialogModule ,
+    MatButtonModule,
+    
+    
     ],
     entryComponents: [],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'ja-JP'},
-  
+  { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  { provide: RouteReuseStrategy, useClass: CustomRouteReuseStrategy },
  
   {
     provide:  DateAdapter,

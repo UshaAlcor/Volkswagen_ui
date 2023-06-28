@@ -1,27 +1,13 @@
-
-<!-- <div class="container">
-<section class="custom-modalbox sectionCss">
-   
-      
-      <div mat-dialog-content>
-        <p>{{message}}</p>
-        <mat-form-field>
-            <input matInput placeholder="Enter password" [(ngModel)]="dialogInput">
-          </mat-form-field>
-      </div> -->
-     
 <div mat-dialog-content>
-    <p>{{data.message}}</p>
+  <p>{{data.message}}</p>
   <mat-form-field style="width: 554px;">
-    <input matInput placeholder="Enter password"  required  [(ngModel)]="dialogInput">
+    <input matInput placeholder="Enter password" required [(ngModel)]="dialogInput">
     <mat-error *ngIf="showError">password is incorrect</mat-error>
 
   </mat-form-field>
 </div>
-      <div mat-dialog-actions>
-        
-        <button mat-raised-button color="primary" (click)="onConfirm()">Okay</button>
-        <button mat-button (click)="onDismiss()">Cancel</button>
-      </div>
-    <!-- </section>
-   </div> -->
+<div mat-dialog-actions>
+
+  <button mat-raised-button color="primary" (click)="onConfirm()">Okay</button>
+  <button mat-button (click)="onDismiss()">Cancel</button>
+</div>

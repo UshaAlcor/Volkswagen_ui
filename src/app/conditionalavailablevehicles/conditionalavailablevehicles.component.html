@@ -8,14 +8,14 @@
         <div class="example-button-row">
             <button mat-button style="margin-left:200px;margin-top:40px;background-color:#001E50;color:#FFFFFF;"
                 (click)="information()">View Records || 記録を見る || Kiroku o miru </button>
-            <!-- <a mat-button href="https://www.google.com/" target="_blank">Link</a> -->
-        </div>
+           </div>
 
     </mat-card-header>
 
     <br>
 
     <table>
+        <th></th>
         <tr>
             <td>
                 <mat-label> Select Model Year </mat-label>
@@ -123,6 +123,7 @@
     </mat-form-field>
     <form class="example-form" style="background-color:#FFFFFF;width:1400px;height:60px;margin-left:10px;">
         <table>
+            <th></th>
             <tr>
                 <td>
                     <mat-label> Color Name </mat-label>
@@ -229,10 +230,6 @@
                 <mat-header-cell (click)="sortKana()" *matHeaderCellDef mat-sort-header
                     style="background-color:#001E50;color:#FFFFFF;">
                    Vehicle Body Price <br> 車両本体価格
-
-	
-                    <!-- <span *ngIf="sortTable === 'asc'">&#x25B2;</span>
-                              <span *ngIf="sortTable === 'desc'">&#x25BC;</span> -->
                 </mat-header-cell>
                 <mat-cell *matCellDef="let row"> {{ row.vehiclepriceintax }} </mat-cell>
 
@@ -243,8 +240,6 @@
                 <mat-header-cell (click)="sortKana()" *matHeaderCellDef mat-sort-header
                     style="background-color:#001E50;color:#FFFFFF;">
                    No. of Distributors in Stock <br> 販社在庫数
-                    <!-- <span *ngIf="sortTable === 'asc'">&#x25B2;</span>
-                              <span *ngIf="sortTable === 'desc'">&#x25BC;</span> -->
                 </mat-header-cell>
                 <mat-cell *matCellDef="let row"> {{ row.distributorinventory }} </mat-cell>
             </ng-container>
@@ -256,21 +251,7 @@
                 <mat-cell *matCellDef="let row"> {{ row.storeinventory}} </mat-cell>
             </ng-container>
 
-            <!-- PR
-            <ng-container matColumnDef="action">
-                <mat-header-cell (click)="sortKana()" *matHeaderCellDef mat-sort-header
-                    style="background-color:#001E50;color:#FFFFFF;">Action
-                </mat-header-cell>
-                <button mat-raised-button color="primary"
-                style="margin-left:20px;margin-top:40px;background-color:#001E50;">Select</button>
-            </ng-container> -->
-
-            <!-- <ng-container matColumnDef="action">
-                <th mat-header-cell *matHeaderCellDef style="background-color:#001E50;color:#FFFFFF;">Action <br> SAVE <br> アクション</th>
-                <td mat-cell *matCellDef="let element" class="action-link">
-                  <button mat-raised-button style="margin-left:20px;margin-top:30px;background-color:#001E50;color:#F5F5F5;" (click)="selectalert(element)" >SAVE</button> |
-                </td>
-              </ng-container> -->
+        
            
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
@@ -283,8 +264,5 @@
     
     <button mat-raised-button color="primary" (click)="terminatealert()"
         style="margin-left:20px;margin-top:40px;background-color:red;">Terminate</button>
-    <button mat-button style="margin-left:20px;margin-top:40px;background-color:#001E50;color:white;" (click)="refreshPage()">Reset</button>
-    
-    <!-- <a mat-button href="https://www.google.com/" target="_blank">Link</a> -->
-</div>
+ </div>
 

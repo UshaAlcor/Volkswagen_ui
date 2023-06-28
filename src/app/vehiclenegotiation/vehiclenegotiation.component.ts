@@ -42,7 +42,7 @@ interface modelprcode {
 @Component({
   selector: 'app-vehiclenegotiation',
   templateUrl: './vehiclenegotiation.component.html',
-  styleUrls: ['./vehiclenegotiation.component.css']
+  styleUrls: ['./vehiclenegotiation.component.scss']
 })
 export class VehiclenegotiationComponent {
   displayedColumns: string[] = ['colorname','colorcode', 'interiorname', 'interiorcode','bodyprice','distributorstock','inventory'];

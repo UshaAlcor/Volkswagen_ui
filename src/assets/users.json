@@ -1,24 +1,52 @@
-{
-  "users": [
-    {
-      "id": "1",
-      "name": "[北海道]",
-      "email": "doejohn@kanjilab.it"
-    },
-    {
-      "id": "2",
-      "name": " [青森県]",
-      "email": "doejohn@kanjilab.it"
-    },
-    {
-      "id": "3",
-      "name": " [岩手県",
-      "email": "doejohn@kanjilab.it"
-    },
-    {
-      "id": "4",
-      "name": "  [宮城県]",
-      "email": "doejohn@kanjilab.it"
-    }
-  ]
-}
+[  
+  {  
+    "id": 1,  
+    "name": "Luca",  
+    "email": "luca@gmail.com",  
+    "gender": "male"  ,
+    "evasId":"123",
+    "password":"Vusha@123456",
+    "status":"active",
+    "token":"axpp1Q"
+  },  
+  {  
+    "id": 2,  
+    "name": "Lilly",  
+    "email": "lilly@gmail.com",  
+    "gender": "female",
+    "evasId":"456",
+    "password":"Vusha@1234567",
+    "status":"active",
+    "token":"axpp1Q"
+  },  
+  {  
+    "id": 3,  
+    "name": "Anna",  
+    "email": "anna@gmail.com",  
+    "gender": "female",
+    "evasId":"1234",
+    "password":"Vusha@1234568",
+    "status":"active",
+    "token":"axpp1Q"
+  },  
+  {  
+    "id": 4,  
+    "name": "John",  
+    "email": "john@gmail.com",  
+    "gender": "male",
+    "evasId":"1238",
+    "password":"Vusha@123454",
+    "status":"active",
+    "token":"axpp1Q"
+  },  
+  {  
+    "id": 5,  
+    "name": "Mary",  
+    "email": "mary@gmail.com",  
+    "gender": "female",
+    "evasId":"122",
+    "password":"Vusha@123459",
+    "status":"active",
+    "token":"axpp1Q"
+  }  
+]  

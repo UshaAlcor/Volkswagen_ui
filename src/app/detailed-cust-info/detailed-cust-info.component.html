@@ -7,14 +7,14 @@
           opacity: 1;">Detailed Customer Information || 詳細な顧客情報 || Shōsaina kokyaku jōhō</mat-card-title>
            <div class="example-button-row">
             <button mat-button style="margin-left:90px;margin-top:40px;background-color:#001E50;color:#FFFFFF;">Edit Record || レコードの編集 || Rekōdo no henshū</button>
-            <!-- <a mat-button href="https://www.google.com/" target="_blank">Link</a> -->
-          </div>
+           </div>
 
         </mat-card-header>
         <br>
         <form class="example-form" style="background-color:#FFFFFF;width:1200px;height:600px;margin-left:50px;" [formGroup]="registerForm" >
           <!-- <mat-card-content>  -->
             <table >
+              <th></th>
               <tbody>
                 <br>
                   <tr>
@@ -130,7 +130,6 @@
 
               </tbody>
           </table>
-          <!-- </mat-card-content> -->
           </form>
 
           <mat-card-footer>
@@ -138,8 +137,7 @@
             <div class="example-button-row">
               <button mat-button disabled style="margin-left:900px;margin-top:40px;">Delete Record</button>
               <button mat-raised-button color="primary" style="margin-left:20px;margin-top:40px;background-color:#001E50;"(click)="updatesSubmitted()" >Update Record</button>
-              <!-- <a mat-button href="https://www.google.com/" target="_blank">Link</a> -->
-            </div>
+              </div>
   
           </mat-card-footer>
 </mat-card>

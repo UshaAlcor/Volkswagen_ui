@@ -12,7 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-preorder',
   templateUrl: './preorder.component.html',
-  styleUrls: ['./preorder.component.css']
+  styleUrls: ['./preorder.component.scss']
 })
 export class PreorderComponent {
   displayedColumns: string[] = ['field_sequenceno','model', 'modelcode', 'modelyear','brandcode','vehicleprice'];

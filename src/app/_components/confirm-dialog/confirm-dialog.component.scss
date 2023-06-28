@@ -1,0 +1,38 @@
+.dialogCss{
+font-size:12px;
+color:black
+}
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #001E50 !important;
+}
+.lockImg{
+    background: #F8F8F8 0% 0% no-repeat padding-box;
+    position: absolute;
+   
+    width: 30%;
+   
+
+
+}
+.column2 {
+    float: left;
+    width: 69%;
+    margin-top: -11px;
+    margin-left: 295px;
+    padding-right: 43px;
+
+
+}
+.column1{
+    width:30%;
+    float:right;
+}
+.bottom-left {
+    position: absolute;
+    bottom: 52px;
+    left: 133px;
+    color:#ADE0E7
+  }
+  .setFont{
+    font:normal normal medium 15px/18px meiryo;
+  }

@@ -1,0 +1,94 @@
+<!-- Section: Split screen -->
+<div class="container">
+    <span class="blueLabel"></span>
+    <span  class="evasLabel"></span>
+    <section class="">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="cardPosition">
+                        <h4 >EVAS 認証コード入力 </h4>
+                        
+                        <span><p  class="pclass">登録されているメールアドレスに認証コードを送信しました。受信した６桁の数字を入力して下さい。 </p>
+                        </span>
+
+                        <div>
+                            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                                <div class="mb-3">
+                                    <br>
+                                    <label class="form-label labelCss">認証コード(数字6桁) </label>
+                                    <br>
+                                 
+                                            <ng-otp-input  (onInputChange)="onOtpChange($event)"  [config]="{length:6,allowNumbersOnly:true}"></ng-otp-input>
+                                        
+                                             <mat-error *ngIf="noCode==true" >
+                                               Please enter the authenctication code
+                                           </mat-error>
+                                            <mat-error  *ngIf="insufficientCount==true" >
+                                                 The number of digits in the code is insufficient
+                                            </mat-error>
+                                      
+
+                                </div>
+                               <br>
+                               <div class="row">
+                               <a > 認証コードを受け取れない方はこちら?</a> 
+                            </div>
+                            <div class="row">
+                                <a >認証コード再送信</a>   
+                            </div>
+                              
+                                <br>
+                                <div>
+                                    <button (click)="onSubmit()" [disabled]="codeLength<6" class="btn btn-primary loginImg">
+                                        <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+                                        ログイン
+                                    </button>
+
+
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-1"></div>
+
+                                    <div class="col">
+                                        認証コードを受け取れない方は
+                                        <span class="linkCss"><a routerLink="../forgotPasswordJapanTranslation" class="btn btn-link">こちら
+                                        </a></span>
+                                       
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-2"></div>
+    
+                                        <div class="col">
+                                          
+                                            <a routerLink="../forgotPasswordJapanTranslation" class="btn btn-link">認証コード再送信
+
+                                            </a>
+                                           
+                                        </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="parent">
+                        <img class="blueImg image1" src="/assets/MaskGroup3.png" alt="image">
+                        <img class="blueImg image2" src="/assets/Rectangle.png" alt="image">
+                        <img class=" image4" src="/assets/Rectangle1.png" alt="image">
+                        <div class="blueImg image3">
+                         
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+<!-- Section: Split screen -->

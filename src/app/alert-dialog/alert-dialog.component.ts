@@ -1,7 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { AuthService } from '../auth.service';
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-alert-dialog',
@@ -21,12 +20,7 @@ export class AlertDialogComponent {
     // Update view with given values
     this.title = data.title;
     this.message = data.message;
-    // if(this.authService.printpdfData.kananame!=this.dialogInput)
-    // {
-      
-    //   this.showError=true;
-    //   console.log(this.showError)
-    // }
+
   
     
   }

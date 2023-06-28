@@ -15,15 +15,13 @@ import { GeneratePDFTwoComponent } from '../generate-pdftwo/generate-pdftwo.comp
 @Component({
   selector: 'app-print-detail-two',
   templateUrl: './print-detail-two.component.html',
-  styleUrls: ['./print-detail-two.component.css']
+  styleUrls: ['./print-detail-two.component.scss']
 })
 export class PrintDetailTwoComponent {
 
   pdfSrc: any;
   pdf!: PDFDocumentProxy;
-  @ViewChild(PdfViewerComponent, { static: false })
- 
-  private pdfComponent!: PdfViewerComponent;result: any;
+result: any;
   Roles: any = ['Admin', 'Author', 'Reader'];
   @ViewChild('invoice') invoiceElement!: ElementRef;
   date:any='';

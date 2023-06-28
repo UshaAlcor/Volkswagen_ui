@@ -26,7 +26,7 @@ export interface usedCars {
 @Component({
   selector: 'app-usedcars',
   templateUrl: './usedcars.component.html',
-  styleUrls: ['./usedcars.component.css']
+  styleUrls: ['./usedcars.component.scss']
 })
 export class UsedcarsComponent {
   displayedColumns: string[] = ['dealercode','sortno', 'category', 'grade', 'yor','colorcode','mileage','expiry','vinno','price'];

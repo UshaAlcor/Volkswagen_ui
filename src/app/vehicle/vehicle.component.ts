@@ -23,7 +23,7 @@ export interface vehicleNew {
 @Component({
   selector: 'app-vehicle',
   templateUrl: './vehicle.component.html',
-  styleUrls: ['./vehicle.component.css']
+  styleUrls: ['./vehicle.component.scss']
 })
 export class VehicleComponent {
   displayedColumns: string[] = ['year', 'category', 'grade', 'modelcode', 'commission', 'vinno','distributorinventory', 'stockinventory'];

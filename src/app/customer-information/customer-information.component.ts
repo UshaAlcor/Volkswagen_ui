@@ -1,27 +1,19 @@
 import { Component } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
 import { AuthService } from '../auth.service';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
-import {MatDialog} from '@angular/material/dialog';
-
-
-
-
 @Component({
   selector: 'app-customer-information',
   templateUrl: './customer-information.component.html',
-  styleUrls: ['./customer-information.component.css']
+  styleUrls: ['./customer-information.component.scss']
 })
 export class CustomerInformationComponent {
  
   inforesponse: any;
   auth: any;
   formdata: any;
-
-  
   original="sme text";
   data: any;
-  model!: String[];
+  model!: string[];
   selection: any;
   dataSource: any;
 

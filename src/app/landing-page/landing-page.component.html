@@ -15,9 +15,11 @@
     [formGroup]="registerForm" (ngSubmit)="registerSubmitted()">
     <!-- <mat-card-content>  -->
     <table>
+      <th></th>
       <tbody>
         <br>
         <tr>
+        
           <td>
             <label style="margin-left:30px;">Customer Name(Kanji)Name</label><br>
             <mat-form-field class="example-full-width" style="height:60px;width:550px;margin-left:30px;">
@@ -158,7 +160,5 @@
       style="background-color:#001E50;color:#FFFFFF;width:300px;margin-left:450px;margin-top:50px;"
       [disabled]="registerForm.invalid">Register || 登録 || Tōroku</button>
 
-
-    <!-- </mat-card-content> -->
   </form>
 </mat-card>

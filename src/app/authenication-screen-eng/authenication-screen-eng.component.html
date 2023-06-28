@@ -1,0 +1,71 @@
+<!-- Section: Split screen -->
+<div class="container">
+    <span class="blueLabel"></span>
+    <span  class="evasLabel"></span>
+    <section class="">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="cardPosition">
+                        <h4 >EVAS Authentication Code Input</h4>
+                        
+                        <span><p  class="pclass">Authentication code has been sent to you registered mail address.
+                             please enter the 6 digits number you received.</p>
+                        </span>
+
+                        <div>
+                            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                                <div class="mb-3">
+                                    <br>
+                                    <label class="form-label labelCss">Authentication code</label>
+                                    <br>
+                                 
+                                            <ng-otp-input  (onInputChange)="onOtpChange($event)"  [config]="{length:6,allowNumbersOnly:true}"></ng-otp-input>
+                                        
+                                            <mat-error  *ngIf="insufficientCount==true" >
+                                                 The number of digits in the code is insufficient
+                                            </mat-error>
+                                      <br>
+                                      <div class="row">
+                                        <a  class="btn btn-link">Didn’t receive authentication code</a>
+                                    </div>
+                                    <div class="row">
+                                        <a  class="btn btn-link">Resend Authentication Code</a>
+                                    </div>
+
+                                </div>
+                               
+                              
+                                <br>
+                                <div>
+                                    <button [disabled]="codeLength<6" (click)="onSubmit()"  class="btn btn-primary loginImg">
+                                        <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+                                        Login
+                                    </button>
+
+
+
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="parent">
+                        <img class="blueImg image1" src="/assets/MaskGroup3.png" alt="image">
+                        <img class=" image2" src="/assets/Rectangle.png" alt="image">
+                        <img class=" image4" src="/assets/Rectangle1.png" alt="image">
+                        <div class="blueImg image3">
+                          
+                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+<!-- Section: Split screen -->

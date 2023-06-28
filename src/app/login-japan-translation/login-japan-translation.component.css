@@ -1,0 +1,297 @@
+.cardPosition {
+  margin-left: 12%;
+  margin-top: 266px;
+}
+
+.evasicon {
+  width: 139px;
+  height: 59px;
+  opacity: 1;
+}
+
+.setWidth {
+  width: 85%;
+}
+
+.labelCss {
+  text-align: left;
+  font: 14px Meiryo ;
+  letter-spacing: 0px;
+  color:#7C7C7C;
+
+  opacity: 1;
+}
+
+.signInicon {
+  width: 100px;
+  height: 44px;
+  color:#000000
+}
+
+.messageIcon {
+  width: 21px;
+  height: 21px;
+  color: #000000
+}
+
+.inner-addon {
+  position: relative;
+}
+
+.innerCss {
+
+
+  background: url(../../assets/message1.png) no-repeat scroll 7px 1px;
+  padding-left: 40px;
+}
+
+.passwordinvisible {
+  background: url(../../assets/padlock1.png) no-repeat scroll 7px -1px;
+  /* url(../../assets/invisible1.png) no-repeat 388px;  */
+  padding-left: 40px;
+}
+
+.innerPwdCss {
+  background: url(../../assets/padlock1.png) no-repeat scroll 7px 7px;
+  padding-left: 40px;
+}
+
+.blueImg {
+  width: 939px;
+  height: 750px;
+  margin-top: 11px;
+}
+
+.loginImg {
+
+  width: 427px;
+  height: 50px;
+  color: white;
+  /* background-color: #001E50; */
+  border-radius: 74px;
+  margin-top: 5%;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+  background-color: #001E50 !important;
+}
+
+.loginDiv {
+  margin-left: -31px;
+}
+
+.parent {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.image1 {
+  position: relative;
+  top: 0;
+  left: 0;
+
+}
+
+.image2 {
+  position: absolute;
+  top: 117px;
+  width: 725px;
+  height: 572px;
+
+}
+
+
+.image3 {
+  position: absolute;
+  top: 379px;
+  width: 607px;
+  height: 249px;
+  margin-left: 41px;
+}
+
+.image4 {
+  position: absolute;
+  top: 116px;
+  height: 574px;
+  margin-left: -10px;
+  border-radius: 9px 0px 0px 9px;
+  opacity: 0.87;
+  left: -18px;
+}
+
+.remeberMe {
+  margin-left: 8px;
+}
+
+.input-icons i {
+  position: absolute;
+}
+
+.input-icons {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.icon {
+  padding: 10px;
+  min-width: 40px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+.setContent {
+  margin-top: -238px;
+  text-align: left;
+  font: 14px arial;
+  letter-spacing: 0px;
+  opacity: 1;
+  color: #FFFFFFFF;
+}
+
+.userIcon {
+  /* width: 16px;
+height: 19px;
+
+background: transparent url('../../assets/user.png') 0% 0% no-repeat padding-box;
+opacity: 1; */
+  margin-left: 6px;
+  color: #001E50;
+}
+
+.lockIcon {
+  margin-top: 2px;
+  margin-left: 6px;
+  color: #001E50;
+
+}
+
+.inputClass {
+  margin-left: 8px;
+}
+
+.eyeIcon {
+  color: #001E50;
+  padding-right: 18px;
+}
+
+invalid-feedback {
+  color: #F85959;
+
+}
+
+.blueLabel {
+  width: 100%;
+  height: 110px;
+  margin-top: 1%;
+  position: absolute;
+  /* UI Properties */
+  background: transparent url('../../assets/blueLabel.png') 0% 0% no-repeat padding-box;
+  /* opacity: 1;
+margin-left: -86px; */
+}
+
+.evasLabel {
+  width: 100%;
+  height: 74px;
+
+  /* UI Properties */
+
+  position: absolute;
+  background: transparent url('../../assets/evasLabelIcon.png') 0% 0% no-repeat padding-box;
+  opacity: 1;
+  margin-left: 7%;
+  /* margin-left: 26%; */
+  margin-top: 2%;
+}
+
+.login-container {
+  grid-area: loginCard;
+  justify-self: center;
+  text-align: center;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+/* media query for iPad mini */
+@media screen and (max-width: 768px) {
+
+  .loginImg {
+    width: 255px;
+  }
+  .setContent {
+    font: normal normal normal 9px/20px Lato;
+   
+  }
+  .h2, h2 {
+    font-size: calc(.8rem + .3vw);
+  }
+  .parent {
+    left: 51px;
+}
+
+}
+/* media query for iPad air */
+@media screen and (max-width: 820px) {
+
+  .loginImg {
+    width: 255px;
+  }
+  .setContent {
+    font: normal normal normal 9px/20px Lato;
+   
+  }
+  .h2, h2 {
+    font-size: calc(.9rem + .5vw);
+  }
+  .parent {
+    left: 51px;
+}
+
+}
+
+@media only screen and (max-width: 600px) {
+ /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+  .evasLabel {
+    margin-left: 50%;
+    width: 100%;
+    height: 50%;
+  }
+  .blueLabel {
+    width: 100%;
+    height: 50%;
+  }
+  .errorCss{
+    /* font-size: 16px; */
+    color:#F85959;
+    font:12px arial;
+  }
+}
+.success-snackbar{
+  background-color:#FFFFFFFF;
+  color:#969696;
+}
+::ng-deep snack-bar-container.custom-class {
+  background: yellow;
+}
+
+::ng-deep .custom-class .mat-simple-snackbar {
+  color: green;
+}

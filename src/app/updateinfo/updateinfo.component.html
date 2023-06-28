@@ -18,9 +18,9 @@
       <button mat-button style="margin-left :30px;background-color:#001E50;color:white;"
         (click)="search()">Search || 検索 || Kensaku</button>
         <hr style="margin-top:30px;">
-        <!-- <a mat-button href="https://www.google.com/" target="_blank">Link</a> -->
       </div>
       <table *ngIf="this.searchedResult&&( searchedResult| json) != '{}'; else content">
+       <th></th>
         <tbody>
           <br>
           <tr>
@@ -29,7 +29,6 @@
               <input matInput placeholder="Name(Kana)" type="text" class="form-control" name="kananame"
                 formControlName="kananame" ngDefaultControl 
                 style="height:40px;width:350px;margin-left:30px;text-align: left;font: normal normal normal 18px/63px Lato;letter-spacing: 0px;color: #4B4B4B;opacity: 1;background-color: #F5F5F5;border-radius:8px;text-align:center;border:none"/>
-                  <!-- {{searchedResult?.kananame}} -->
                   <hr style="width:350px;margin-left:30px;">
             </td>
             <td>
@@ -141,15 +140,14 @@
       </table>
       <ng-template #content> <label class="noDataCss">No Data Found</label></ng-template>
  
-      <!-- </mat-card-content> -->
+
    
   
     <mat-card-footer *ngIf="searchedResult&&( searchedResult| json) != '{}'" >
         <div class="example-button-row" style="margin-top:50px;">
             <button mat-button  color="secondary" (click)="deleteRecord()"style="margin-left:900px;margin-top:40px;">Delete Record</button>
             <button mat-raised-button color="primary"(click)="updatesSubmitted()" style="margin-left:20px;margin-top:40px;background-color:#001E50;" >Update Record</button>
-            <!-- <a mat-button href="https://www.google.com/" target="_blank">Link</a> -->
-          </div>
+  </div>
   </mat-card-footer>
   </form>
   </mat-card>

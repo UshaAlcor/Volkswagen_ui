@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-listcustomer',
   templateUrl: './listcustomer.component.html',
-  styleUrls: ['./listcustomer.component.css']
+  styleUrls: ['./listcustomer.component.scss']
 })
 export class ListcustomerComponent {
 

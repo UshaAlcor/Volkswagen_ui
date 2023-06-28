@@ -52,7 +52,7 @@ export interface vehicle {
 @Component({
   selector: 'app-vehicleselection',
   templateUrl: './vehicleselection.component.html',
-  styleUrls: ['./vehicleselection.component.css']
+  styleUrls: ['./vehicleselection.component.scss']
 })
 export class VehicleselectionComponent {
   displayedColumns: string[] = ['colorname','colorcode', 'interiorname', 'interiorcode','bodyprice','distributorstock','inventory'];
@@ -196,13 +196,9 @@ export class VehicleselectionComponent {
   console.log(res)
     })
   
-    // console.log(filterValue)
-    // this.dataSource.filter = filterValue.trim().toLowerCase();
+    
   }
   applyFilter(event: Event) {
-    //const filterValue = (event.target as HTMLInputElement).value;
-   // console.log(filterValue)
-   // this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   
   get Kanjiname(): FormControl {
@@ -272,15 +268,7 @@ export class VehicleselectionComponent {
  }
 
   information() {
-    let model={}
-    //colorname
-    //colorcode
-    //interiorname
-    //interior code
-    //Vehicle Body Price
-    //No. of Distributors in Stock 
-    //Store Inventory Quantity
-    
+    let model={}   
      model={
       colorname:this.model.colorname,
       colorcode:this.model.colorcode,
@@ -294,12 +282,6 @@ export class VehicleselectionComponent {
       (data: any) => {
         this.inforesponse = data;
         console.log('information', this.inforesponse);
-        // console.log(Object.keys(this.inforesponse[0].id));
-
-        // type NewType = 1 | -1 | 0 | undefined;
-        // this.dataSource = new MatTableDataSource(
-        //   (this.dataSource = this.inforesponse)
-        // );
         type NewType = 1 | -1 | 0 | undefined;
         this.dataSource = new MatTableDataSource(
           (this.dataSource = this.inforesponse)
@@ -308,19 +290,6 @@ export class VehicleselectionComponent {
       });
   }
 
-  //delete
-
-  // delete(rowid: number): void {
-  //   if (rowid > -1) {
-  //     this.inforesponse.splice(rowid, 1);
-  //     this.inforesponse = [...this.inforesponse];
-  //     this.dataSource = new MatTableDataSource(
-  //       (this.dataSource = this.inforesponse)
-        
-  //     ); // new ref!
-  //     console.log('here',this.dataSource)
-  //   }
-  // }
   
   alert(): void {
     
@@ -331,9 +300,8 @@ export class VehicleselectionComponent {
     console.log("checked: " + ob.checked);
     if(ob.checked==true)
     {
-  //  let event:any=1
+
     this.model.distributorinventory=1
-   // this.dataSource.filter =event
     }
     else{
       this.model.distributorinventory=undefined

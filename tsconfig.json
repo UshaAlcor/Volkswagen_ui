@@ -7,7 +7,6 @@
     "forceConsistentCasingInFileNames": true,
     "strict": false,
     "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
@@ -20,6 +19,9 @@
     "module": "ES2022",
     "useDefineForClassFields": false,
     "allowSyntheticDefaultImports":true,
+    "skipLibCheck": true,
+    "noPropertyAccessFromIndexSignature": false,
+
     "lib": [
       "ES2022",
       "dom"
@@ -32,8 +34,8 @@
     "strictTemplates": true,
     "strictPropertyInitialization": false,
    
-      "types" : ["node"],
-      "typeRoots": ["./src/typings", "/node_modules/@types"]
+    
+   
  
   }
 }

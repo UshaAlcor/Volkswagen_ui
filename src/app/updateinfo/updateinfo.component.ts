@@ -6,7 +6,7 @@ import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-updateinfo',
   templateUrl: './updateinfo.component.html',
-  styleUrls: ['./updateinfo.component.css']
+  styleUrls: ['./updateinfo.component.scss']
 })
 export class UpdateinfoComponent {
   Roles: any = ['Admin', 'Author', 'Reader'];

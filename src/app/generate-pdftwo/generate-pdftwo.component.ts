@@ -11,7 +11,7 @@
   @Component({
     selector: 'app-generate-pdftwo',
     templateUrl: './generate-pdftwo.component.html',
-    styleUrls: ['./generate-pdftwo.component.css']
+    styleUrls: ['./generate-pdftwo.component.scss']
   })
   export class GeneratePDFTwoComponent {
   

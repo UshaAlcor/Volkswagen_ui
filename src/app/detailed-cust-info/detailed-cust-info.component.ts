@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-detailed-cust-info',
   templateUrl: './detailed-cust-info.component.html',
-  styleUrls: ['./detailed-cust-info.component.css']
+  styleUrls: ['./detailed-cust-info.component.scss']
 })
 export class DetailedCustInfoComponent {
   Roles: any = ['Admin', 'Author', 'Reader'];

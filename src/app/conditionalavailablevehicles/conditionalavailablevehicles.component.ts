@@ -44,7 +44,7 @@ interface modelprcode {
 @Component({
   selector: 'app-conditionalavailablevehicles',
   templateUrl: './conditionalavailablevehicles.component.html',
-  styleUrls: ['./conditionalavailablevehicles.component.css']
+  styleUrls: ['./conditionalavailablevehicles.component.scss']
 })
 export class ConditionalavailablevehiclesComponent {
   displayedColumns: string[] = ['select','colorname','colorcode', 'interiorname', 'interiorcode','bodyprice','distributorstock','inventory'];
@@ -72,7 +72,6 @@ export class ConditionalavailablevehiclesComponent {
   prcode:  modelprcode[]=[];
   selectedRecord: any[];
   constructor(private httpClient: HttpClient, public dialog: MatDialog, private loginAuth: AuthService, private router: Router, private activatedRoute: ActivatedRoute) {
-    //this.userData = users;
   }
   removeDuplicates(myArray, Prop) {
     return myArray.filter((obj, pos, arr) => {
@@ -102,46 +101,9 @@ export class ConditionalavailablevehiclesComponent {
         
       });
     })
-//this.information();
-
-// this.year = [
-//   {value: '2019', viewValue: '2019'},
-//   {value: '2020', viewValue: '2020'},
-//   {value: '2021', viewValue: '2021'},
-//   {value: '2022', viewValue: '2022'},
-//   {value: '2023', viewValue: '2023'},
-// ];
-
-// this.category  = [
-//   {value: this.inforesponse, viewValue: 'S4AV'},
-//   {value: 'SQ2', viewValue: 'SQ2'},
-//   {value: 'A3SB', viewValue: 'A3SB'},
-// ];
 
 
-// this.grade  = [
-//   {value: '35TADVANCED', viewValue: '35TADVANCED'},
-//   {value: '30T', viewValue: '30T'},
-//   {value: '31TADVANCED', viewValue: '31TADVANCED'},
- 
-// ];
 
-// code : modelcode[] = [
-//   {value: '8W5S4A', viewValue: '8W5S4A'},
- 
-// ];
-
-// type : modeltype[] = [
-//   {value: 'A01', viewValue: 'A01'},
-//   {value: 'A02', viewValue: 'A02'},
-//   {value: 'A03', viewValue: 'A03'},
-// ];
-
-// prcode : modelprcode[] = [
-//   {value: '3FB 40S 4E7 6H0 79B 7W1 8RM 9S8 ER5 IT1 PC2 PCE PNS VW1 WHJ'
-//   , viewValue: '3FB 40S 4E7 6H0 79B 7W1 8RM 9S8 ER5 IT1 PC2 PCE PNS VW1 WHJ'},
-
-// ];
   }
 
   

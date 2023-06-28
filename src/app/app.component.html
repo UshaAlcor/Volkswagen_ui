@@ -13,24 +13,10 @@
         </div>
 
         <div class="col-md-4">
-            <!-- <img src=".\assets\Search_icon.png" style="height:25px;width:25px;margin-left:10px;" alt="Logo"> -->
-            <input type="search" placeholder=" Search..." id="form1"
+             <input type="search" placeholder=" Search..." id="form1"
                 style="color:#D3D3D3;width:250px;height:30px;margin-left:30px;" class="form-control" />
         </div>
-
-        <!-- <div class="vl-col-md-1" style="margin-left:30px"></div>
-        <div class="col-md-1">
-            <img src=".\assets\Group326.png" style="margin-left:15px;margin-top:20px;" alt="Logo">
-        </div>
-        <div class="vl-col-md-1" style="margin-right:10px;"></div>
-         <div class="col-md-2" style="margin-left:30px;width:100px;">
-            <mat-select>
-                <mat-option>None</mat-option>
-                <mat-option *ngFor="let detail of details" [value]="detail">{{detail}}</mat-option>
-            </mat-select>
-        </div> 
-        <div mat-card-avatar class="example-header-image" style="margin-left:100px;margin-top:10px;"></div> -->
-    </mat-toolbar-row>
+ </mat-toolbar-row>
 </mat-toolbar>
 
 
@@ -43,7 +29,6 @@
         <div class="row" style="margin-left:20px;margin-top:15px;">
             <img src=".\assets\Iconly-Curved-Setting.svg" alt="Logo">
         </div>
-        <!-- <hr style="background-color:#234295;"> -->
         <div class="row" style="margin-top:25px;margin-left:20px;">
             <img src=".\assets\Iconly-Curved-Tick Square.svg" alt="Logo">
         </div>
@@ -53,9 +38,7 @@
         <div class="row" style="margin-left:20px;margin-top:25px;">
             <img src=".\assets\Iconly-Curved-Bookmark.svg" alt="Logo">
         </div>
-        <!-- <div class="row" style="margin-top:35px;margin-left:20px;">
-            <img src=".\assets\star.svg" alt="Logo">
-        </div> -->
+
     </mat-drawer>
 
     <mat-drawer-content style="background-color: #FFFFFF;">
@@ -86,3 +69,6 @@
 
     </mat-toolbar-row>
 </mat-toolbar>
+
+<alert></alert>
+<router-outlet></router-outlet>

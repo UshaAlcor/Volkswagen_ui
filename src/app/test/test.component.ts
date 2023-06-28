@@ -14,7 +14,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
-  styleUrls: ['./test.component.css']
+  styleUrls: ['./test.component.scss']
 })
 export class TestComponent {
   displayedColumns: string[] = ['id', 'name', 'email', 'action'];

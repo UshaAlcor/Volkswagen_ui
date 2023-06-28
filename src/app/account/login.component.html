@@ -1,0 +1,116 @@
+<!-- Section: Split screen -->
+<div class="container">
+    <div class="row">
+        <div class="col col-md-6">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <span class="blueLabel img-fluid"></span>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <span class="evasLabel img-fluid"></span>
+                </div>
+            </div>
+            <!-- form div -->
+            <div class="row">
+                <div class="col col-md-12 col-sm-12">
+
+                    <div class="cardPosition">
+                        <h4 class="signInicon">Login</h4>
+                        <br>
+
+                        <div>
+                            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                                <div class="mb-3">
+                                    <br>
+                                    <label class="form-label labelCss">EVAS ID</label>
+                                    <br>
+                                    <mat-form-field class="setWidth">
+                                        <span matPrefix class="userIcon"> <mat-icon>perm_identity</mat-icon></span>
+                                        <input matInput class="inputClass" formControlName="evasId"
+                                            placeholder="Enter EVAS ID" type="text"
+                                            [ngClass]="{ 'is-invalid': submitted && f.evasId.errors }">
+                                        <mat-error *ngIf="submitted && f.evasId.errors || f.evasId.errors?.required"
+                                            class="invalid-feedback">EVAS ID is required</mat-error>
+
+                                    </mat-form-field>
+
+
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label labelCss">Password</label>
+                                    <br>
+                                    <mat-form-field class="setWidth">
+                                        <span matPrefix class="lockIcon"><span
+                                                class="material-icons-outlined">lock</span></span>
+
+
+                                        <input matInput class="inputClass" formControlName="password"
+                                            placeholder="Enter Password" [type]="hide ? 'password' : 'text'"
+                                            [ngClass]="{ 'is-invalid': submitted && f.password.errors  }">
+
+                                        <mat-error *ngIf="f.password.errors?.required" class="invalid-feedback">
+                                            Password is required.
+                                        </mat-error>
+
+                                        <span matSuffix class="eyeIcon" *ngIf="f.password.value"> <mat-icon
+                                                (click)="hide = !hide">{{hide ? 'visibility_off' :
+                                                'visibility'}}</mat-icon></span>
+                                    </mat-form-field>
+
+
+
+
+
+                                </div>
+
+                                <div class="col col-md-12">
+                                    <a routerLink="../forgotPassword" class="btn btn-link">Forgot Password</a>
+                                </div>
+
+
+
+                                <div class="col col-sm-6 col-md-6 ">
+                                    <button [disabled]="loading" class="btn btn-primary loginImg">
+                                        <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+                                        Login
+                                    </button>
+
+                                </div>
+
+
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col col-md-6 col-3 ">
+
+            <div class="parent">
+                <img class="blueImg image1" src="/assets/MaskGroup3.png" alt="image">
+                <img class=" image2" src="/assets/Rectangle.png" alt="image">
+                <img class=" image4" src="/assets/Rectangle1.png" alt="image">
+                <div class="blueImg image3">
+                    <pre class="setContent">
+<h2>Evas Help Desk
+TEL:0570-998-930 Hours 9:00-21:00</h2>
+An automated voice will guide you.Follow the voice guidance and press 
+the desired service number with the push button.
+1.Inquires about EVAS ID/Account invalidation
+2.Inquiries about warranty,service and maintanance
+3.Inquires regarding other EVAS operations such as quotations and e-sign
+                            </pre>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</div>
+<!-- Section: Split screen -->

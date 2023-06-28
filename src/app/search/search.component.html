@@ -19,9 +19,9 @@
         (click)="search()">Search || 検索 || Kensaku</button>
 
       <hr style="margin-top:30px;">
-      <!-- <a mat-button href="https://www.google.com/" target="_blank">Link</a> -->
-    </div>
+      </div>
     <table *ngIf="( searchedResult| json) != '{}'; else content">
+      <th></th>
       <tbody>
         <br>
         <tr>
@@ -136,7 +136,6 @@
       </tbody>
     </table>
     <ng-template #content> <label class="noDataCss">No Data Found</label></ng-template>
-    <!-- </mat-card-content> -->
   </form>
 
   <mat-card-footer>

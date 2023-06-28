@@ -1,0 +1,125 @@
+/* You can add global styles to this file, and also import other style files */
+/* .app-container {
+    min-height: 320px;
+    overflow: hidden;
+    margin-left: 7%;
+    max-width: max-content;
+} */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+.custom-dialog-container .mat-mdc-dialog-container {
+ 
+    .mdc-dialog__title {
+        color:#AB0031;
+      /* color:#AB0031; */
+       /* Font-size:20px */
+       margin-left:-24px
+   }
+   .mdc-dialog__content {
+    /* color: red; */
+    font-size: 16px;
+    /* color:#AB0031; */
+    /* margin-top: 30px;
+    margin-left: 50px; */
+    /* overflow: hidden; */
+}
+}
+   .custom-modalbox .mat-mdc-dialog-container {
+    .mdc-dialog__surface {
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+    }
+    .mdc-dialog__title {
+      
+       color:#AB0031;
+        /* Font-size:20px */
+        /* margin-left:-30px */
+    }
+       
+      
+    .mdc-dialog__content{
+     /* ;
+     font-size:16px;
+     margin-top: 24px; */
+     color: black;
+     overflow-x: hidden !important;
+  overflow-y: hidden !important;
+    
+/* UI Properties */
+background: #FFFFFF 0% 0% no-repeat padding-box;width:20px
+
+
+
+}
+
+   }
+   .custom-modalboxEn .mat-mdc-dialog-container {
+    .mdc-dialog__surface {
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+    }
+    .mdc-dialog__title {
+      
+       color:#AB0031;
+        /* Font-size:20px */
+        margin-left:-30px
+    }
+       
+      
+    .mdc-dialog__content{
+     /* color: black;
+     font-size:16px;
+     margin-top: 24px; */
+     overflow-x: hidden !important;
+  overflow-y: hidden !important;
+    
+/* UI Properties */
+background: #FFFFFF 0% 0% no-repeat padding-box;width:20px
+
+
+
+}
+   }
+.custom-dialog-container-au  .mat-mdc-dialog-container {
+ 
+    .mdc-dialog__title {
+      
+      /* color:#AB0031; */
+       /* Font-size:20px */
+       margin-left:-29px;
+       color:#AB0031;
+   }
+   .mdc-dialog__content {
+    /* color: red; */
+    font-size: 16px;
+ color: black;
+    /* margin-top: 30px;
+    margin-left: 50px; */
+    /* overflow: hidden; */
+}
+}
+
+
+.mat-mdc-form-field-error {
+    color: #AB0031;
+    /* font-size:12px; */
+    font: normal normal normal 12px arial;
+}
+mat-form-field {
+    mat-error {
+        display: none !important;
+    }
+
+    mat-error:first-child {
+        display: block !important;
+    }
+}
+mat-form-field .mat-form-field {
+    &-underline {
+      position: relative;
+      bottom: auto;
+    }
+    &-subscript-wrapper {
+      position: static;
+    }
+  }
+

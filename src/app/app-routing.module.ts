@@ -16,13 +16,19 @@ import { VehiclenegotiationComponent } from './vehiclenegotiation/vehiclenegotia
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { UsedcarsComponent } from './usedcars/usedcars.component';
 import { PreorderComponent } from './preorder/preorder.component';
+import { AuthGuard } from './_helpers';
+import { HomeComponent } from './home';
+const accountModule = () => import('./account/account.module').then(x => x.AccountModule);
 
 const routes: Routes = [
+  
 //on load of the  SPA Application
   {
-    path: '',
+    path: 'custInfo',
     component: LandingPageComponent
   },
+  { path: 'account', loadChildren: accountModule },
+  { path: '', component: HomeComponent,canActivate:[AuthGuard]},
   //In order to Search customer info
   {
     path:'search',
@@ -112,7 +118,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

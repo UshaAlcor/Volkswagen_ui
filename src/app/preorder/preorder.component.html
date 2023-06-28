@@ -8,66 +8,19 @@
         <div class="example-button-row">
             <button mat-button style="margin-left:370px;margin-top:40px;background-color:#001E50;color:#FFFFFF;"
                 (click)="information()">View Records || 記録を見る || Kiroku o miru </button>
-            <!-- <a mat-button href="https://www.google.com/" target="_blank">Link</a> -->
-        </div>
+               </div>
 
     </mat-card-header>
 
     <br>
 
-    <!-- <table>
-        <tr>
-            <td>
-                <mat-label> Search By Model Code </mat-label>
-            </td>
-            <td>
-                <mat-label> Search By Model Name </mat-label>
-            </td>
-            <td>
-                <mat-label> Search By Model Year</mat-label>
-            </td>
-            <td>
-                <mat-label> Search By Vehicle Price (Inc. Tax)</mat-label>
-            </td>
-            
-
-
-        </tr>
-
-        <tr>
-            <td>
-                <input matInput (keyup)="applyFilter($event)" placeholder="モデルコード" #input
-                    Style="background-color:white;height:30px;width:320px;">
-
-            </td>
-            <td>
-                <input matInput (keyup)="applyFilter($event)" placeholder="モデル名" #input
-                    Style="background-color:white;height:30px;width:320px;">
-
-            </td>
-            <td>
-                <input matInput (keyup)="applyFilter($event)" placeholder="モデルイヤー" #input
-                    Style="background-color:white;height:30px;width:320px;">
-
-            </td>
-            <td>
-                <input matInput (keyup)="applyFilter($event)" placeholder="車両本体価格（消費税込み）" #input
-                    Style="background-color:white;height:30px;width:320px;">
-
-            </td>
-            
-        </tr>
-    </table> -->
 
     <hr>
 
-    <!-- <mat-form-field>
-        <mat-label> Search record || 検索記録 || Kensaku kiroku ||</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ヤマモト" #input
-            Style="background-color:white;height:50px;">
-    </mat-form-field> -->
+ 
     <form class="example-form" style="background-color:#FFFFFF;width:1400px;height:60px;margin-left:10px;">
         <table>
+            <th></th>
             <tr>
                 <td>
                     <mat-label> Sequence No. </mat-label>
@@ -136,9 +89,7 @@
                 <mat-header-cell (click)="sortKana()" *matHeaderCellDef mat-sort-header
                     style="background-color:#001E50;color:#FFFFFF;">
                     Model Code <br> モデルコード
-                    <!-- <span *ngIf="sortTable === 'asc'">&#x25B2;</span>
-                              <span *ngIf="sortTable === 'desc'">&#x25BC;</span> -->
-                </mat-header-cell>
+                      </mat-header-cell>
                 <mat-cell *matCellDef="let row"> {{ row.modelcode }} </mat-cell>
 
             </ng-container>
@@ -148,9 +99,7 @@
                 <mat-header-cell (click)="sortKana()" *matHeaderCellDef mat-sort-header
                     style="background-color:#001E50;color:#FFFFFF;">
                     Model Year <br> モデル年
-                    <!-- <span *ngIf="sortTable === 'asc'">&#x25B2;</span>
-                              <span *ngIf="sortTable === 'desc'">&#x25BC;</span> -->
-                </mat-header-cell>
+                      </mat-header-cell>
                 <mat-cell *matCellDef="let row"> {{ row.modelyear }} </mat-cell>
             </ng-container>
 
@@ -180,5 +129,4 @@
         style="margin-left:1200px;margin-top:40px;background-color:red;">Terminate</button>
     <button mat-button style="margin-left:20px;margin-top:40px;background-color:#001E50;color:white;" (click)="refreshPage()">Reset</button>
     
-    <!-- <a mat-button href="https://www.google.com/" target="_blank">Link</a> -->
-</div>
+    </div>

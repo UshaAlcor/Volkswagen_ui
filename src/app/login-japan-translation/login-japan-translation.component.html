@@ -1,0 +1,132 @@
+<!-- Section: Split screen -->
+<div class="container">
+    <span class="blueLabel"></span>
+    <span class="evasLabel"></span>
+    <section class="">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="cardPosition">
+                        <h4 class="signInicon">ログイン</h4>
+                        <br>
+
+                        <div>
+                            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                                <div class="mb-3">
+
+
+
+                                    <br>
+                                    <label class="form-label labelCss">EVAS ID</label>
+                                    <br>
+                                    <mat-form-field class="setWidth">
+                                        <span matPrefix class="userIcon"> <mat-icon>perm_identity</mat-icon></span>
+                                        <input matInput formControlName="evasId" type="text" class="inputClass"
+                                            [ngClass]="{ 'is-invalid': submitted && f['evasId'].errors }">
+                                        <mat-error
+                                            *ngIf="submitted && f['evasId'].errors || f['evasId'].errors?.required"
+                                            class="invalid-feedback errorCss"> EVAS IDを入力してください。</mat-error>
+
+                                    </mat-form-field>
+
+
+                                </div>
+                                <div class="mb-3">
+
+
+
+                                    <label class="form-label labelCss">パスワード</label>
+                                    <br>
+                                    <mat-form-field class="setWidth">
+                                        <span matPrefix class="lockIcon"><span
+                                                class="material-icons-outlined">lock</span></span>
+                                        <input matInput formControlName="password" class="inputClass"
+                                            [type]="hide ? 'password' : 'text'"
+                                            [ngClass]="{ 'is-invalid': submitted && f['password'].errors  }">
+                                        <mat-error *ngIf="f['password'].errors?.required"
+                                            class="invalid-feedback errorCss">
+                                            パスワードを入力してください。
+                                        </mat-error>
+                                        <span matSuffix class="eyeIcon" *ngIf="f['password'].value"> <mat-icon
+                                                (click)="hide = !hide">{{hide ? 'visibility_off' :
+                                                'visibility'}}</mat-icon></span>
+
+                                    </mat-form-field>
+
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-3"></div>
+
+                                    <div class="col labelCss">
+                                        パスワードをお忘れの方は<span class="linkCss"><a routerLink="../account/forgotPasswordJP"
+                                                class="btn btn-link">こちら
+                                            </a></span>
+
+                                    </div>
+                                </div>
+                                <br>
+                                <div>
+                                    <button [disabled]="loading || invalidedAttemptCounter === 3"
+                                        class="btn btn-primary loginImg">
+                                        <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+                                        ログイン
+                                    </button>
+                                    <br>
+                                    <br>
+
+
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-3">
+
+                    <div class="parent">
+                        <img class="blueImg image1" src="/assets/MaskGroup3.png" alt="image">
+                        <img class="blueImg image2" src="/assets/Rectangle.png" alt="image">
+
+                        <img class=" image4" src="/assets/Rectangle1.png" alt="image">
+                        <div class="blueImg image3">
+                            <pre class="setContent">
+                             お知らせ
+                            【サービス一時休止のお知らせ】(2023/06/06)
+                            システムメンテナンスの為、
+                            下記時間サービスを一時休止させていただきます。
+                            ご迷惑をお掛けしますが、ご理解の程よろしくお願いいたします。
+                            
+                            サービス一時休止期間：（作業終了順次再開）
+                            　2023年 6月 27日（火） 21:30～翌6:00まで
+                            　2023年 7月 4日（火）   21:30～翌6:00まで
+                            　2023年 7月 18日（火）  21:30～翌6:00まで
+                            
+                            【お問い合わせ】
+                            EVASヘルプデスク
+                            TEL 0570-088-938 時間9:00～21:00
+                            自動音声でご案内します。音声の案内にしたがって、
+                            ご希望のサービス番号をプッシュボタンで押してください。
+
+                            1 EVAS ID・アカウント無効化に関する問い合わせ
+                            2 保証・サービスアンドメステナンスに関するお問い合わせ
+                            3 見積・e-signなどその他のEVAS操作先般に関する問い合わせ
+                            ＊セキュリティポリシーにより、ログイン名／パスワードを
+                            
+                            ５回間違えるとロックがかかり30分間ログインできなくなります。
+                            パスワードをお忘れの方は
+                            EVASヘルプデスクまでお問い合わせください。
+                            
+                        </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+<!-- Section: Split screen -->
