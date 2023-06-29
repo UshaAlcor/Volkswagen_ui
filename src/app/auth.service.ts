@@ -84,7 +84,7 @@ export class AuthService {
       
     }
     //let url = environment.apiBase + 'displaycar/';
-    let url = environment.apiBase + 'search/';
+    let url = environment.apiBase + 'usedcar/';
     return this.http.get<any>(url, { params: queryParams });
    
   }
@@ -274,9 +274,8 @@ search=search
   }
   getCarPriceSearchByparam(criteria: any,search?:any) {
     
-    if(search){
-    search=search
-    }else{
+    if(!search){
+ 
       search="search"
     }
         let queryParams = new HttpParams();
