@@ -259,9 +259,9 @@ confirmDialog(): void {
   const dialogData = new ConfirmDialogModel("Message", message);
 
   const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-    maxWidth: "800px",
+  
     data: dialogData,
-    panelClass: 'custom-modalbox'
+    panelClass: 'custom-modalbox1'
   });
 
   dialogRef.afterClosed().subscribe(dialogResult => {

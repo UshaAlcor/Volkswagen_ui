@@ -3,7 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { CustomRouteReuseStrategy } from '../routerReuseStratagy.component';
+// import { CustomRouteReuseStrategy } from '../routerReuseStratagy.component';
 
 export interface UsersData {
   name: string;
@@ -23,7 +23,7 @@ export class DialogComponent {
   
   
   constructor(private  loginAuth: AuthService,private router: Router, private activatedRoute: ActivatedRoute,
-    private customRouteStratagy:CustomRouteReuseStrategy,
+    // private customRouteStratagy:CustomRouteReuseStrategy,
     public dialogRef: MatDialogRef<DialogComponent>,
     //@Optional() is used to prevent error if no data is passed
     @Optional() @Inject(MAT_DIALOG_DATA) public data: UsersData
@@ -171,8 +171,8 @@ export class DialogComponent {
   }
   
   refreshPage() {
-    this.customRouteStratagy.shouldReuseRoute = () => false;
-   
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
     this.router.navigate([this.activatedRoute.snapshot.url]);
  }
 
