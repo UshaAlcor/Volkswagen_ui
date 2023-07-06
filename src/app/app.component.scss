@@ -1,5 +1,5 @@
 .example-container {
-    width: 1400px;
+    // width: 1400px;
     background: green 0% 0% no-repeat ;
     overflow-x: hidden;
   }
@@ -7,7 +7,7 @@
     width: 61px;
     background-color: #001E50;
   }
-  
+
   /* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import '~material-design-icons/iconfont/material-icons.css'; */
 
@@ -29,13 +29,13 @@
 .example-container {
   /* display: flex;
   flex-direction: column; */
-  min-width: 1500px;
+  // min-width: 1500px;
   background-color: aqua;
   overflow-x: hidden;
 }
 
 .mat-table {
-  overflow: auto;
+  // overflow: auto;
   font-family: 'Open Sans', sans-serif;
 }
 
